@@ -743,7 +743,7 @@
 
     <script>
         // GOOGLE APPS SCRIPT WEB APP ENDPOINT URL
-        const GOOGLE_APPS_SCRIPT_URL = 'HIER_EURE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_EINFÜGEN';
+        const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbweLQLVvoLkxYgizEei_kykji4pCvoMF37s-URHbSD6xg3M7vqGuW5xs8gzq-rV0FMQaA/exec';
 
         // 1. RSVP Form Handler
         document.getElementById('custom-rsvp-form').addEventListener('submit', function(e) {
@@ -751,11 +751,6 @@
             
             const btn = document.getElementById('rsvp-btn');
             const originalContent = btn.innerHTML;
-
-            if (GOOGLE_APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbweLQLVvoLkxYgizEei_kykji4pCvoMF37s-URHbSD6xg3M7vqGuW5xs8gzq-rV0FMQaA/exec' || !GOOGLE_APPS_SCRIPT_URL) {
-                showToast("Bitte füge zuerst eure Google Apps Script Web App URL im Code ein.");
-                return;
-            }
 
             btn.disabled = true;
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-gold-light"></i><span>Wird gesendet...</span>';
