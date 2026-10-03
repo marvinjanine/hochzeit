@@ -24,23 +24,23 @@
                         sage: {
                             50: '#F4F7F4',
                             100: '#E4EAE4',
-                            200: '#CBD5CC', // Main Sage background color from design mockup
+                            200: '#CBD5CC',
                             300: '#B5C4B7',
                             400: '#8A9A86',
-                            500: '#6C8370', // Primary dark sage for text
+                            500: '#6C8370',
                             600: '#536857',
                             700: '#3D4F40',
                             800: '#2D3B2D',
                         },
                         cream: {
                             50: '#FFFFFF',
-                            100: '#FAF9F5', // Card background from image
+                            100: '#FAF9F5',
                             200: '#F4F1EA',
                             300: '#E6E1D4',
                         },
                         gold: {
                             light: '#E8D298',
-                            DEFAULT: '#C5A059', // Metallic gold wireframe color
+                            DEFAULT: '#C5A059',
                             dark: '#A37E39',
                             deeper: '#8A6721'
                         }
@@ -63,19 +63,16 @@
             overflow-x: hidden;
         }
 
-        /* Gold metallic gradient text */
         .gold-gradient-text {
             background: linear-gradient(135deg, #A37E39 0%, #E8D298 50%, #8A6721 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Card depth shadow matching high-end print mockup */
         .invitation-card-shadow {
             box-shadow: 0 25px 50px -12px rgba(45, 59, 45, 0.18), 0 0 30px rgba(0, 0, 0, 0.05);
         }
 
-        /* Floating background leaf movement */
         @keyframes floatSlow {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-12px) rotate(2deg); }
@@ -94,7 +91,6 @@
             animation: floatReverse 9s ease-in-out infinite;
         }
 
-        /* Custom elegant scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -112,7 +108,7 @@
 </head>
 <body class="relative min-h-screen selection:bg-sage-300 selection:text-sage-800">
 
-    <!-- Floating Background Decor: Eucalyptus Branches (Top Left & Top Right) -->
+    <!-- Floating Background Decor: Eucalyptus Branches -->
     <div class="fixed top-0 left-0 w-64 md:w-96 pointer-events-none z-0 opacity-90 animate-float-slow">
         <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto transform -scale-x-100">
             <path d="M 10,10 Q 90,80 180,160 Q 220,200 270,280" stroke="#4A614E" stroke-width="2.5" fill="none" opacity="0.7" />
@@ -150,12 +146,13 @@
                 <a href="#countdown" class="hover:text-gold transition">Übersicht</a>
                 <a href="#ablauf" class="hover:text-gold transition">Tagesablauf</a>
                 <a href="#locations" class="hover:text-gold transition">Locations & Route</a>
+                <a href="#rsvp" class="hover:text-gold transition">Rückmeldung</a>
                 <a href="#kalender" class="hover:text-gold transition">Kalender</a>
                 <a href="#faq" class="hover:text-gold transition">Wissenswertes</a>
             </div>
 
-            <a href="#kalender" class="bg-sage-700 hover:bg-sage-800 text-cream-100 px-4 py-2 rounded-full text-[11px] uppercase tracking-widest transition shadow-md">
-                <i class="fa-regular fa-calendar-check mr-1.5 text-gold-light"></i> Termin Speichern
+            <a href="#rsvp" class="bg-sage-700 hover:bg-sage-800 text-cream-100 px-4 py-2 rounded-full text-[11px] uppercase tracking-widest transition shadow-md">
+                <i class="fa-regular fa-paper-plane mr-1.5 text-gold-light"></i> Zu- / Absagen
             </a>
         </div>
     </nav>
@@ -166,7 +163,6 @@
         <!-- SECTION 1: HERO INVITATION CARD -->
         <section id="karte" class="relative flex justify-center items-center py-4 md:py-8">
             
-            <!-- Outer Golden Geometric Frame -->
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <svg class="w-full max-w-2xl h-[760px]" viewBox="0 0 500 680" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <polygon points="250,20 470,180 470,500 250,660 30,500 30,180" stroke="#C5A059" stroke-width="1.2" opacity="0.75"/>
@@ -176,37 +172,30 @@
                 </svg>
             </div>
 
-            <!-- Central Card Container (Cream #FAF9F5) -->
             <div class="relative w-full max-w-md bg-cream-100 rounded-lg invitation-card-shadow border border-cream-300/80 p-8 md:p-12 text-center my-4 transition-transform duration-500 hover:scale-[1.005]">
                 
-                <!-- Inner Fine Gold Border -->
                 <div class="absolute inset-3 border border-gold/30 rounded pointer-events-none"></div>
 
-                <!-- 1. Script Subtitle: "Wir sagen Ja" -->
                 <p class="font-script text-3xl md:text-4xl text-gold-dark mb-1 tracking-wide">
                     Wir sagen Ja
                 </p>
 
-                <!-- 2. Main Names & Title -->
                 <h1 class="font-serif text-3xl md:text-5xl font-semibold tracking-[0.2em] text-sage-600 leading-tight uppercase my-3">
                     Janine<br>
                     <span class="font-serif font-light text-2xl md:text-3xl tracking-normal text-sage-500 block my-1">&</span>
                     Marvin
                 </h1>
 
-                <!-- Sub-Header -->
                 <p class="font-serif italic text-sm md:text-base text-sage-700 tracking-wider my-2">
                     Einladung zu unserer Hochzeit
                 </p>
 
                 <div class="w-16 h-[1px] bg-gold/50 mx-auto my-4"></div>
 
-                <!-- 3. Subtitle Date & Location Badge -->
                 <p class="font-sans text-xs md:text-sm font-medium tracking-[0.2em] text-sage-700 uppercase my-3">
                     Samstag, 12. Dezember 2026
                 </p>
 
-                <!-- 4. Monogram Emblem: "J & M" inside Golden Wreath -->
                 <div class="relative my-6 py-2 flex justify-center items-center">
                     <div class="relative w-32 h-32 flex items-center justify-center">
                         <svg class="absolute inset-0 w-full h-full" viewBox="0 0 120 120" fill="none">
@@ -226,17 +215,16 @@
                     </div>
                 </div>
 
-                <!-- 5. Script Greeting: "Liebe Familie, liebe Freunde," -->
                 <p class="font-script text-3xl text-gold-dark mt-4 mb-2">
-                    Liebe Familie, liebe Freunde,
+                    Wir heiraten!
                 </p>
 
-                <!-- 6. Invitation Text -->
                 <p class="font-sans text-xs md:text-sm text-sage-800 leading-relaxed max-w-xs mx-auto font-light tracking-wide">
-                    Wir freuen uns sehr, diesen besonderen Tag im Kreise unserer Liebsten zu feiern und laden euch herzlich zu unserer Hochzeit ein!
+                    Und weil ein gutes Fest von den richtigen Gästen lebt, dürfen unsere Lieblingsmenschen natürlich nicht fehlen. Wir laden euch herzlich ein, diesen Tag gemeinsam mit uns zu verbringen!
+
+                    Auf unserer Hochzeits-Webseite findet ihr alle Infos zum Tagesablauf, den Locations und der Rückmeldemöglichkeit.
                 </p>
 
-                <!-- Scroll down bounce indicator -->
                 <div class="mt-8 pt-2">
                     <a href="#countdown" class="inline-block text-gold hover:text-gold-dark transition animate-bounce">
                         <i class="fa-solid fa-chevron-down text-lg"></i>
@@ -253,7 +241,6 @@
                 Bis zu unserem großen Tag
             </h2>
 
-            <!-- Live Countdown Grid -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-10">
                 <div class="bg-cream-200/60 p-4 rounded-xl border border-sage-200/80 shadow-sm">
                     <span id="cd-days" class="font-serif text-3xl md:text-5xl font-bold text-sage-700 block">00</span>
@@ -273,7 +260,6 @@
                 </div>
             </div>
 
-            <!-- Quick Info Tiles -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left mb-8">
                 <div class="p-4 bg-sage-50/80 rounded-xl border border-sage-200 flex items-start space-x-3">
                     <i class="fa-regular fa-calendar-days text-gold text-xl mt-1"></i>
@@ -303,7 +289,6 @@
                 </div>
             </div>
 
-            <!-- Jump Action Buttons -->
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="#ablauf" class="bg-sage-700 hover:bg-sage-800 text-cream-100 px-6 py-3 rounded-full text-xs uppercase tracking-widest font-medium transition shadow-md">
                     <i class="fa-solid fa-clock mr-2"></i> Zum Tagesablauf
@@ -328,12 +313,10 @@
             </div>
 
             <div class="relative max-w-3xl mx-auto">
-                <!-- Vertical Timeline Line -->
                 <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-sage-300/70"></div>
 
                 <div class="space-y-10">
                     
-                    <!-- Station 1: 13:00 Uhr -->
                     <div class="relative flex flex-col md:flex-row items-start md:items-center">
                         <div class="pl-12 md:pl-0 w-full md:w-1/2 md:pr-8 md:text-right">
                             <span class="font-sans text-xs font-bold uppercase tracking-wider text-gold-dark block">13:00 Uhr • Der Moment</span>
@@ -352,7 +335,6 @@
                         <div class="hidden md:block w-1/2"></div>
                     </div>
 
-                    <!-- Station 2: 13:30 Uhr -->
                     <div class="relative flex flex-col md:flex-row items-start md:items-center">
                         <div class="hidden md:block w-1/2"></div>
                         <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold-dark shadow z-10 my-1">
@@ -368,7 +350,6 @@
                         </div>
                     </div>
 
-                    <!-- Station 3: 16:00 Uhr -->
                     <div class="relative flex flex-col md:flex-row items-start md:items-center">
                         <div class="pl-12 md:pl-0 w-full md:w-1/2 md:pr-8 md:text-right">
                             <span class="font-sans text-xs font-bold uppercase tracking-wider text-gold-dark block">16:00 Uhr • Location-Wechsel</span>
@@ -387,7 +368,6 @@
                         <div class="hidden md:block w-1/2"></div>
                     </div>
 
-                    <!-- Station 4: 16:30 Uhr -->
                     <div class="relative flex flex-col md:flex-row items-start md:items-center">
                         <div class="hidden md:block w-1/2"></div>
                         <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold-dark shadow z-10 my-1">
@@ -403,7 +383,6 @@
                         </div>
                     </div>
 
-                    <!-- Station 5: 19:00 Uhr -->
                     <div class="relative flex flex-col md:flex-row items-start md:items-center">
                         <div class="pl-12 md:pl-0 w-full md:w-1/2 md:pr-8 md:text-right">
                             <span class="font-sans text-xs font-bold uppercase tracking-wider text-gold-dark block">19:00 Uhr • Kulinarischer Genuss</span>
@@ -419,7 +398,6 @@
                         <div class="hidden md:block w-1/2"></div>
                     </div>
 
-                    <!-- Station 6: Im Anschluss -->
                     <div class="relative flex flex-col md:flex-row items-start md:items-center">
                         <div class="hidden md:block w-1/2"></div>
                         <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold-dark shadow z-10 my-1">
@@ -455,7 +433,6 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
-                <!-- Location 1 Card -->
                 <div id="location-1" class="bg-sage-50/80 rounded-xl p-6 border border-sage-200 flex flex-col justify-between shadow-sm">
                     <div>
                         <div class="flex items-center justify-between mb-3">
@@ -479,7 +456,6 @@
                         </div>
                     </div>
 
-                    <!-- Action Buttons -->
                     <div class="space-y-2 pt-2 border-t border-sage-200">
                         <div class="grid grid-cols-2 gap-2">
                             <a href="https://maps.google.com/?q=Michael-Buyx-Straße+2,+47647+Kerken-Nieukerk" target="_blank" class="bg-cream-50 border border-sage-300 hover:border-gold text-sage-800 text-[11px] font-medium py-2 px-3 rounded-lg text-center transition flex items-center justify-center space-x-1.5">
@@ -498,7 +474,6 @@
                     </div>
                 </div>
 
-                <!-- Location 2 Card -->
                 <div id="location-2" class="bg-sage-50/80 rounded-xl p-6 border border-sage-200 flex flex-col justify-between shadow-sm">
                     <div>
                         <div class="flex items-center justify-between mb-3">
@@ -522,7 +497,6 @@
                         </div>
                     </div>
 
-                    <!-- Action Buttons -->
                     <div class="space-y-2 pt-2 border-t border-sage-200">
                         <div class="grid grid-cols-2 gap-2">
                             <a href="https://maps.google.com/?q=Kempener+Str.+52a,+47647+Kerken" target="_blank" class="bg-cream-50 border border-sage-300 hover:border-gold text-sage-800 text-[11px] font-medium py-2 px-3 rounded-lg text-center transition flex items-center justify-center space-x-1.5">
@@ -543,7 +517,6 @@
 
             </div>
 
-            <!-- Route Info Banner -->
             <div class="p-6 bg-sage-700 text-cream-100 rounded-xl shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
                 <div class="flex items-center space-x-4">
                     <div class="w-12 h-12 rounded-full bg-cream-100/10 border border-gold/40 flex items-center justify-center text-gold-light text-xl shrink-0">
@@ -561,7 +534,61 @@
 
         </section>
 
-        <!-- SECTION 5: KALENDER-EXPORT SECTION -->
+        <!-- SECTION 5: RSVP / RÜCKMELDUNG (GOOGLE SHEETS INTEGRATION) -->
+        <section id="rsvp" class="bg-cream-100/95 backdrop-blur-sm rounded-2xl p-6 md:p-12 border border-cream-300 invitation-card-shadow">
+            <div class="text-center mb-8">
+                <p class="font-script text-3xl text-gold-dark mb-1">Wir freuen uns auf euch</p>
+                <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-800 uppercase">
+                    Rückmeldung & Antwort
+                </h2>
+                <div class="w-12 h-[1px] bg-gold/50 mx-auto mt-3 mb-4"></div>
+                <p class="font-sans text-xs md:text-sm text-sage-600 leading-relaxed max-w-xl mx-auto font-light">
+                    Bitte gebt uns Bescheid, ob ihr diesen besonderen Tag gemeinsam mit uns feiern könnt!
+                </p>
+            </div>
+
+            <form id="custom-rsvp-form" class="max-w-xl mx-auto space-y-5 bg-sage-50/70 p-6 md:p-8 rounded-xl border border-sage-200/80 shadow-sm">
+                <div>
+                    <label for="rsvp-name" class="block text-xs font-bold uppercase tracking-wider text-sage-800 mb-2">
+                        Name(n) der Gäste <span class="text-gold-dark">*</span>
+                    </label>
+                    <input type="text" id="rsvp-name" required placeholder="z. B. Max & Anna Mustermann" class="w-full px-4 py-3 bg-cream-50 border border-sage-300 rounded-lg text-xs text-sage-800 focus:outline-none focus:border-gold transition">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="rsvp-status" class="block text-xs font-bold uppercase tracking-wider text-sage-800 mb-2">
+                            Rückmeldung <span class="text-gold-dark">*</span>
+                        </label>
+                        <select id="rsvp-status" required class="w-full px-4 py-3 bg-cream-50 border border-sage-300 rounded-lg text-xs text-sage-800 focus:outline-none focus:border-gold transition">
+                            <option value="Zusage">Ja, ich / wir kommen sehr gerne!</option>
+                            <option value="Absage">Leider kann ich / können wir nicht kommen</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="rsvp-personen" class="block text-xs font-bold uppercase tracking-wider text-sage-800 mb-2">
+                            Anzahl der Personen
+                        </label>
+                        <input type="number" id="rsvp-personen" min="1" max="10" value="1" class="w-full px-4 py-3 bg-cream-50 border border-sage-300 rounded-lg text-xs text-sage-800 focus:outline-none focus:border-gold transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="rsvp-nachricht" class="block text-xs font-bold uppercase tracking-wider text-sage-800 mb-2">
+                        Unverträglichkeiten / Musikwünsche / Anmerkungen
+                    </label>
+                    <textarea id="rsvp-nachricht" rows="3" placeholder="z. B. Vegetarisch, Allergien oder euer Lieblings-Partysong..." class="w-full px-4 py-3 bg-cream-50 border border-sage-300 rounded-lg text-xs text-sage-800 focus:outline-none focus:border-gold transition"></textarea>
+                </div>
+
+                <button type="submit" id="rsvp-btn" class="w-full bg-sage-700 hover:bg-sage-800 text-cream-100 font-semibold py-3.5 px-6 rounded-lg text-xs uppercase tracking-widest transition shadow-md flex items-center justify-center space-x-2">
+                    <i class="fa-regular fa-paper-plane text-gold-light"></i>
+                    <span>Rückmeldung Absenden</span>
+                </button>
+            </form>
+        </section>
+
+        <!-- SECTION 6: KALENDER-EXPORT SECTION -->
         <section id="kalender" class="bg-cream-100/95 backdrop-blur-sm rounded-2xl p-6 md:p-10 border border-cream-300 invitation-card-shadow text-center">
             <p class="font-script text-3xl text-gold-dark mb-1">Den Tag nicht verpassen</p>
             <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-800 uppercase mb-3">
@@ -583,7 +610,7 @@
             </div>
         </section>
 
-        <!-- SECTION 6: WISSENSWERTES (FAQ) -->
+        <!-- SECTION 7: WISSENSWERTES (FAQ) -->
         <section id="faq" class="bg-cream-100/95 backdrop-blur-sm rounded-2xl p-6 md:p-12 border border-cream-300 invitation-card-shadow">
             
             <div class="text-center mb-10">
@@ -599,21 +626,19 @@
 
             <div class="space-y-4 max-w-2xl mx-auto">
                 
-                <!-- FAQ Item 1 -->
                 <div class="border border-sage-200 rounded-xl overflow-hidden bg-sage-50/60 transition">
                     <button onclick="toggleFAQ(this)" class="w-full p-4 text-left font-serif text-lg font-semibold text-sage-800 flex justify-between items-center focus:outline-none">
                         <span class="flex items-center space-x-2">
-                            <span class="px-2.5 py-0.5 bg-gold/20 text-gold-dark text-[10px] uppercase font-sans font-bold rounded-full">Wichtiger Hinweis</span>
+                            <span class="px-2.5 py-0.5 bg-gold/20 text-gold-dark text-[10px] uppercase font-sans font-bold rounded-full">Rückmeldung</span>
                             <span>Muss ich zu- oder absagen?</span>
                         </span>
                         <i class="fa-solid fa-chevron-down text-sage-500 text-sm transition-transform duration-200"></i>
                     </button>
                     <div class="px-4 pb-4 hidden text-xs text-sage-700 leading-relaxed border-t border-sage-200/50 pt-3">
-                        Nein, eine gesonderte Zu- oder Absage ist nicht erforderlich. Wir haben euch fest in unsere Herzen und in unsere Planungen eingeschlossen und freuen uns riesig darauf, den Tag gemeinsam mit euch zu zelebrieren!
+                        Bitte gebt uns über das Antwort-Formular weiter oben Bescheid, ob ihr dabei seid, damit wir Essen und Sitzplätze optimal planen können.
                     </div>
                 </div>
 
-                <!-- FAQ Item 2 -->
                 <div class="border border-sage-200 rounded-xl overflow-hidden bg-sage-50/60 transition">
                     <button onclick="toggleFAQ(this)" class="w-full p-4 text-left font-serif text-lg font-semibold text-sage-800 flex justify-between items-center focus:outline-none">
                         <span class="flex items-center space-x-2">
@@ -627,7 +652,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ Item 3 -->
                 <div class="border border-sage-200 rounded-xl overflow-hidden bg-sage-50/60 transition">
                     <button onclick="toggleFAQ(this)" class="w-full p-4 text-left font-serif text-lg font-semibold text-sage-800 flex justify-between items-center focus:outline-none">
                         <span class="flex items-center space-x-2">
@@ -641,7 +665,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ Item 4 -->
                 <div class="border border-sage-200 rounded-xl overflow-hidden bg-sage-50/60 transition">
                     <button onclick="toggleFAQ(this)" class="w-full p-4 text-left font-serif text-lg font-semibold text-sage-800 flex justify-between items-center focus:outline-none">
                         <span class="flex items-center space-x-2">
@@ -655,7 +678,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ Item 5 -->
                 <div class="border border-sage-200 rounded-xl overflow-hidden bg-sage-50/60 transition">
                     <button onclick="toggleFAQ(this)" class="w-full p-4 text-left font-serif text-lg font-semibold text-sage-800 flex justify-between items-center focus:outline-none">
                         <span class="flex items-center space-x-2">
@@ -669,7 +691,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ Item 6 -->
                 <div class="border border-sage-200 rounded-xl overflow-hidden bg-sage-50/60 transition">
                     <button onclick="toggleFAQ(this)" class="w-full p-4 text-left font-serif text-lg font-semibold text-sage-800 flex justify-between items-center focus:outline-none">
                         <span class="flex items-center space-x-2">
@@ -687,7 +708,7 @@
 
         </section>
 
-        <!-- SECTION 7: FOOTER / ABSCHLUSS -->
+        <!-- SECTION 8: FOOTER / ABSCHLUSS -->
         <footer class="text-center py-12 px-4 bg-cream-100/90 rounded-2xl border border-cream-300 invitation-card-shadow space-y-6">
             
             <p class="font-script text-4xl text-gold-dark">
@@ -706,7 +727,7 @@
 
             <div class="text-[11px] text-sage-600 space-y-1 font-sans">
                 <p class="font-semibold text-sage-800">12. Dezember 2026 • Michael-Buyx-Straße 2 & Kempener Str. 52a • 47647 Kerken</p>
-                <p class="text-gold-dark font-medium">Hochzeitseinladung • Keine Zu- oder Absage erforderlich</p>
+                <p class="text-gold-dark font-medium">Hochzeitseinladung • Janine & Marvin</p>
                 <p class="pt-4 text-[10px] text-sage-500">Mit Liebe gestaltet für unseren unvergesslichen Hochzeitstag</p>
             </div>
 
@@ -721,7 +742,51 @@
     </div>
 
     <script>
-        // 1. Live Countdown Timer targeting Dec 12, 2026 at 13:00:00 CET
+        // GOOGLE APPS SCRIPT WEB APP ENDPOINT URL
+        const GOOGLE_APPS_SCRIPT_URL = 'HIER_EURE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_EINFÜGEN';
+
+        // 1. RSVP Form Handler
+        document.getElementById('custom-rsvp-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('rsvp-btn');
+            const originalContent = btn.innerHTML;
+
+            if (GOOGLE_APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbweLQLVvoLkxYgizEei_kykji4pCvoMF37s-URHbSD6xg3M7vqGuW5xs8gzq-rV0FMQaA/exec' || !GOOGLE_APPS_SCRIPT_URL) {
+                showToast("Bitte füge zuerst eure Google Apps Script Web App URL im Code ein.");
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-gold-light"></i><span>Wird gesendet...</span>';
+
+            const payload = {
+                name: document.getElementById('rsvp-name').value,
+                status: document.getElementById('rsvp-status').value,
+                personen: document.getElementById('rsvp-personen').value,
+                nachricht: document.getElementById('rsvp-nachricht').value
+            };
+
+            fetch(GOOGLE_APPS_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(() => {
+                showToast("Vielen Dank! Eure Rückmeldung wurde gespeichert.");
+                document.getElementById('custom-rsvp-form').reset();
+                btn.disabled = false;
+                btn.innerHTML = originalContent;
+            })
+            .catch(error => {
+                showToast("Fehler beim Übertragen. Bitte erneut versuchen.");
+                btn.disabled = false;
+                btn.innerHTML = originalContent;
+            });
+        });
+
+        // 2. Live Countdown Timer
         const weddingDate = new Date('2026-12-12T13:00:00').getTime();
 
         function updateCountdown() {
@@ -750,7 +815,7 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // 2. Copy Address to Clipboard with Toast Notification
+        // 3. Copy Address to Clipboard
         function copyToClipboard(text, label) {
             const textArea = document.createElement("textarea");
             textArea.value = text;
@@ -779,7 +844,7 @@
             }, 3000);
         }
 
-        // 3. Download .ics iCal File
+        // 4. Download .ics iCal File
         function downloadICS() {
             const icsData = 
 `BEGIN:VCALENDAR
@@ -808,7 +873,7 @@ END:VCALENDAR`;
             showToast("Kalendereintrag (.ics) heruntergeladen!");
         }
 
-        // 4. Toggle FAQ Accordion
+        // 5. Toggle FAQ Accordion
         function toggleFAQ(button) {
             const content = button.nextElementSibling;
             const icon = button.querySelector('.fa-chevron-down');
