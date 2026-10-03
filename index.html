@@ -5,18 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hochzeit von Janine & Marvin – 12. Dezember 2026</title>
     
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Great Vibes (Script), Cormorant Garamond (Serif Caps), Montserrat (Sans) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Canvas Confetti Library for RSVP celebrate -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    
-    <!-- FontAwesome for Icons -->
+    <!-- FontAwesome 6 for elegant icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
@@ -27,24 +24,25 @@
                         sage: {
                             50: '#F4F7F4',
                             100: '#E4EAE4',
-                            200: '#CBD5CC', // Main background from image
+                            200: '#CBD5CC', // Main Sage background color from design mockup
                             300: '#B5C4B7',
-                            400: '#94A897',
+                            400: '#8A9A86',
                             500: '#6C8370', // Primary dark sage for text
                             600: '#536857',
                             700: '#3D4F40',
-                            800: '#2A372D',
+                            800: '#2D3B2D',
                         },
                         cream: {
                             50: '#FFFFFF',
                             100: '#FAF9F5', // Card background from image
-                            200: '#F2EFE8',
+                            200: '#F4F1EA',
                             300: '#E6E1D4',
                         },
                         gold: {
                             light: '#E8D298',
                             DEFAULT: '#C5A059', // Metallic gold wireframe color
                             dark: '#A37E39',
+                            deeper: '#8A6721'
                         }
                     },
                     fontFamily: {
@@ -60,25 +58,21 @@
     <style>
         body {
             background-color: #CBD5CC;
-            color: #3D4F40;
+            color: #2D3B2D;
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
         }
 
-        /* Gold metallic gradient text & borders */
+        /* Gold metallic gradient text */
         .gold-gradient-text {
-            background: linear-gradient(135deg, #B88E3E 0%, #E8CB78 50%, #A67C2E 100%);
+            background: linear-gradient(135deg, #A37E39 0%, #E8D298 50%, #8A6721 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .gold-border-glow {
-            box-shadow: 0 0 15px rgba(197, 160, 89, 0.25);
-        }
-
         /* Card depth shadow matching high-end print mockup */
         .invitation-card-shadow {
-            box-shadow: 0 25px 50px -12px rgba(42, 55, 45, 0.18), 0 0 30px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 25px 50px -12px rgba(45, 59, 45, 0.18), 0 0 30px rgba(0, 0, 0, 0.05);
         }
 
         /* Floating background leaf movement */
@@ -100,17 +94,7 @@
             animation: floatReverse 9s ease-in-out infinite;
         }
 
-        /* Envelope Flip & Interactive Styling */
-        .envelope-wrapper {
-            perspective: 1000px;
-        }
-        
-        .envelope {
-            transition: transform 0.6s ease-in-out;
-            transform-style: preserve-3d;
-        }
-
-        /* Custom scrollbar */
+        /* Custom elegant scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -118,7 +102,7 @@
             background: #CBD5CC;
         }
         ::-webkit-scrollbar-thumb {
-            background: #94A897;
+            background: #8A9A86;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
@@ -128,117 +112,112 @@
 </head>
 <body class="relative min-h-screen selection:bg-sage-300 selection:text-sage-800">
 
-    <!-- Background Decor: Eucalyptus Branches (Top Left & Top Right) -->
+    <!-- Floating Background Decor: Eucalyptus Branches (Top Left & Top Right) -->
     <div class="fixed top-0 left-0 w-64 md:w-96 pointer-events-none z-0 opacity-90 animate-float-slow">
         <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto transform -scale-x-100">
-            <!-- Watercolor Eucalyptus Leaves SVG rendering -->
             <path d="M 10,10 Q 90,80 180,160 Q 220,200 270,280" stroke="#4A614E" stroke-width="2.5" fill="none" opacity="0.7" />
-            <!-- Stem branches & leaves -->
-            <path d="M 40,35 C 20,15 10,40 30,55 C 50,70 60,45 40,35 Z" fill="#6B8470" opacity="0.85" />
-            <path d="M 70,60 C 40,40 30,70 55,90 C 80,110 90,80 70,60 Z" fill="#88A08D" opacity="0.8" />
-            <path d="M 110,95 C 80,80 75,115 100,130 C 125,145 135,110 110,95 Z" fill="#546E59" opacity="0.9" />
+            <path d="M 40,35 C 20,15 10,40 30,55 C 50,70 60,45 40,35 Z" fill="#6C8370" opacity="0.85" />
+            <path d="M 70,60 C 40,40 30,70 55,90 C 80,110 90,80 70,60 Z" fill="#8A9A86" opacity="0.8" />
+            <path d="M 110,95 C 80,80 75,115 100,130 C 125,145 135,110 110,95 Z" fill="#536857" opacity="0.9" />
             <path d="M 150,135 C 120,120 115,155 140,170 C 165,185 175,150 150,135 Z" fill="#7A947F" opacity="0.85" />
-            <path d="M 190,180 C 160,165 155,200 180,215 C 205,230 215,195 190,180 Z" fill="#435B48" opacity="0.8" />
-            <!-- Secondary sprigs -->
+            <path d="M 190,180 C 160,165 155,200 180,215 C 205,230 215,195 190,180 Z" fill="#3D4F40" opacity="0.8" />
             <path d="M 80,50 Q 130,30 170,10" stroke="#536857" stroke-width="1.5" fill="none" opacity="0.6" />
             <path d="M 110,38 C 100,20 125,15 135,30 C 145,45 120,50 110,38 Z" fill="#99AF9E" opacity="0.8" />
-            <path d="M 145,22 C 135,5 160,0 170,15 C 180,30 155,35 145,22 Z" fill="#6B8470" opacity="0.85" />
+            <path d="M 145,22 C 135,5 160,0 170,15 C 180,30 155,35 145,22 Z" fill="#6C8370" opacity="0.85" />
         </svg>
     </div>
 
     <div class="fixed top-0 right-0 w-64 md:w-96 pointer-events-none z-0 opacity-90 animate-float-reverse">
         <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
             <path d="M 10,10 Q 90,80 180,160 Q 220,200 270,280" stroke="#4A614E" stroke-width="2.5" fill="none" opacity="0.7" />
-            <path d="M 40,35 C 20,15 10,40 30,55 C 50,70 60,45 40,35 Z" fill="#6B8470" opacity="0.85" />
-            <path d="M 70,60 C 40,40 30,70 55,90 C 80,110 90,80 70,60 Z" fill="#88A08D" opacity="0.8" />
-            <path d="M 110,95 C 80,80 75,115 100,130 C 125,145 135,110 110,95 Z" fill="#546E59" opacity="0.9" />
+            <path d="M 40,35 C 20,15 10,40 30,55 C 50,70 60,45 40,35 Z" fill="#6C8370" opacity="0.85" />
+            <path d="M 70,60 C 40,40 30,70 55,90 C 80,110 90,80 70,60 Z" fill="#8A9A86" opacity="0.8" />
+            <path d="M 110,95 C 80,80 75,115 100,130 C 125,145 135,110 110,95 Z" fill="#536857" opacity="0.9" />
             <path d="M 150,135 C 120,120 115,155 140,170 C 165,185 175,150 150,135 Z" fill="#7A947F" opacity="0.85" />
-            <path d="M 190,180 C 160,165 155,200 180,215 C 205,230 215,195 190,180 Z" fill="#435B48" opacity="0.8" />
+            <path d="M 190,180 C 160,165 155,200 180,215 C 205,230 215,195 190,180 Z" fill="#3D4F40" opacity="0.8" />
         </svg>
     </div>
 
     <!-- Navigation Header -->
-    <nav class="sticky top-0 z-50 bg-[#CBD5CC]/80 backdrop-blur-md border-b border-sage-300/50 transition-all duration-300">
+    <nav class="sticky top-0 z-50 bg-[#CBD5CC]/85 backdrop-blur-md border-b border-sage-300/60 transition-all duration-300">
         <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
             <a href="#" class="font-serif text-xl tracking-widest text-sage-800 font-semibold hover:text-gold transition">
                 J <span class="font-script text-gold text-2xl lowercase">&</span> M
             </a>
             
-            <div class="hidden md:flex space-x-6 text-sm uppercase tracking-wider font-medium text-sage-700">
-                <a href="#karte" class="hover:text-sage-900 hover:underline underline-offset-4 transition">Einladung</a>
-                <a href="#countdown" class="hover:text-sage-900 hover:underline underline-offset-4 transition">Countdown</a>
-                <a href="#ablauf" class="hover:text-sage-900 hover:underline underline-offset-4 transition">Tagesablauf</a>
-                <a href="#location" class="hover:text-sage-900 hover:underline underline-offset-4 transition">Location</a>
-                <a href="#rsvp" class="hover:text-sage-900 hover:underline underline-offset-4 transition">RSVP</a>
-                <a href="#geschenke" class="hover:text-sage-900 hover:underline underline-offset-4 transition">Geschenke</a>
+            <div class="hidden md:flex space-x-6 text-xs uppercase tracking-widest font-medium text-sage-800">
+                <a href="#karte" class="hover:text-gold transition">Einladung</a>
+                <a href="#countdown" class="hover:text-gold transition">Übersicht</a>
+                <a href="#ablauf" class="hover:text-gold transition">Tagesablauf</a>
+                <a href="#locations" class="hover:text-gold transition">Locations & Route</a>
+                <a href="#kalender" class="hover:text-gold transition">Kalender</a>
+                <a href="#faq" class="hover:text-gold transition">Wissenswertes</a>
             </div>
 
-            <a href="#rsvp" class="bg-sage-600 hover:bg-sage-700 text-white px-4 py-2 rounded-full text-xs uppercase tracking-widest transition shadow-md hover:shadow-lg">
-                <i class="fa-solid fa-envelope mr-1.5"></i> Antworten
+            <a href="#kalender" class="bg-sage-700 hover:bg-sage-800 text-cream-100 px-4 py-2 rounded-full text-[11px] uppercase tracking-widest transition shadow-md">
+                <i class="fa-regular fa-calendar-check mr-1.5 text-gold-light"></i> Termin Speichern
             </a>
         </div>
     </nav>
 
-    <!-- Main Container -->
+    <!-- Main Content Wrapper -->
     <main class="relative z-10 max-w-4xl mx-auto px-4 py-8 md:py-16 space-y-20">
 
-        <!-- SECTION 1: HERO INVITATION CARD (Exact layout of user image) -->
-        <section id="karte" class="relative flex justify-center items-center py-6">
+        <!-- SECTION 1: HERO INVITATION CARD -->
+        <section id="karte" class="relative flex justify-center items-center py-4 md:py-8">
             
-            <!-- Outer Golden Geometric Frame (Hexagons behind the card) -->
+            <!-- Outer Golden Geometric Frame -->
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <svg class="w-full max-w-2xl h-[680px]" viewBox="0 0 500 650" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Outer Hexagon Lines -->
-                    <polygon points="250,20 470,180 470,470 250,630 30,470 30,180" stroke="#C5A059" stroke-width="1.2" opacity="0.75"/>
-                    <polygon points="250,40 450,190 450,460 250,610 50,460 50,190" stroke="#C5A059" stroke-width="0.8" opacity="0.5"/>
-                    <!-- Overlapping Geometric Diamonds -->
-                    <rect x="70" y="80" width="360" height="490" transform="rotate(6 250 325)" stroke="#C5A059" stroke-width="0.8" opacity="0.4" fill="none"/>
-                    <rect x="70" y="80" width="360" height="490" transform="rotate(-6 250 325)" stroke="#C5A059" stroke-width="0.8" opacity="0.4" fill="none"/>
+                <svg class="w-full max-w-2xl h-[760px]" viewBox="0 0 500 680" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="250,20 470,180 470,500 250,660 30,500 30,180" stroke="#C5A059" stroke-width="1.2" opacity="0.75"/>
+                    <polygon points="250,40 450,190 450,490 250,640 50,490 50,190" stroke="#C5A059" stroke-width="0.8" opacity="0.5"/>
+                    <rect x="70" y="80" width="360" height="520" transform="rotate(6 250 340)" stroke="#C5A059" stroke-width="0.8" opacity="0.35" fill="none"/>
+                    <rect x="70" y="80" width="360" height="520" transform="rotate(-6 250 340)" stroke="#C5A059" stroke-width="0.8" opacity="0.35" fill="none"/>
                 </svg>
             </div>
 
-            <!-- Central Vertical Card Container (Off-white / Cream #FAF9F5) -->
-            <div class="relative w-full max-w-md bg-cream-100 rounded-lg invitation-card-shadow border border-cream-300/60 p-8 md:p-12 text-center my-6 transition-transform duration-500 hover:scale-[1.01]">
+            <!-- Central Card Container (Cream #FAF9F5) -->
+            <div class="relative w-full max-w-md bg-cream-100 rounded-lg invitation-card-shadow border border-cream-300/80 p-8 md:p-12 text-center my-4 transition-transform duration-500 hover:scale-[1.005]">
                 
                 <!-- Inner Fine Gold Border -->
                 <div class="absolute inset-3 border border-gold/30 rounded pointer-events-none"></div>
 
                 <!-- 1. Script Subtitle: "Wir sagen Ja" -->
-                <p class="font-script text-3xl md:text-4xl text-gold-dark mb-4 tracking-wide">
+                <p class="font-script text-3xl md:text-4xl text-gold-dark mb-1 tracking-wide">
                     Wir sagen Ja
                 </p>
 
-                <!-- 2. Main Names in Serif All-Caps: "JANINE & MARVIN" -->
-                <h1 class="font-serif text-3xl md:text-5xl font-semibold tracking-[0.2em] text-sage-600 leading-tight uppercase my-2">
+                <!-- 2. Main Names & Title -->
+                <h1 class="font-serif text-3xl md:text-5xl font-semibold tracking-[0.2em] text-sage-600 leading-tight uppercase my-3">
                     Janine<br>
                     <span class="font-serif font-light text-2xl md:text-3xl tracking-normal text-sage-500 block my-1">&</span>
                     Marvin
                 </h1>
 
-                <!-- Divider line -->
-                <div class="w-16 h-[1px] bg-gold/50 mx-auto my-6"></div>
-
-                <!-- 3. Subtitle Date: "12. DEZEMBER 2026" -->
-                <p class="font-sans text-xs md:text-sm font-medium tracking-[0.3em] text-sage-700 uppercase my-4">
-                    12. Dezember 2026
+                <!-- Sub-Header -->
+                <p class="font-serif italic text-sm md:text-base text-sage-700 tracking-wider my-2">
+                    Einladung zu unserer Hochzeit
                 </p>
 
-                <!-- 4. Monogram Emblem: "J & M" inside Golden Geometric Wreath -->
-                <div class="relative my-8 py-2 flex justify-center items-center">
-                    <div class="relative w-36 h-36 flex items-center justify-center">
-                        <!-- Geometric Gold Rings -->
+                <div class="w-16 h-[1px] bg-gold/50 mx-auto my-4"></div>
+
+                <!-- 3. Subtitle Date & Location Badge -->
+                <p class="font-sans text-xs md:text-sm font-medium tracking-[0.2em] text-sage-700 uppercase my-3">
+                    Samstag, 12. Dezember 2026 • Kerken
+                </p>
+
+                <!-- 4. Monogram Emblem: "J & M" inside Golden Wreath -->
+                <div class="relative my-6 py-2 flex justify-center items-center">
+                    <div class="relative w-32 h-32 flex items-center justify-center">
                         <svg class="absolute inset-0 w-full h-full" viewBox="0 0 120 120" fill="none">
                             <polygon points="60,5 108,32 108,88 60,115 12,88 12,32" stroke="#C5A059" stroke-width="1.2" fill="none"/>
                             <polygon points="60,10 103,35 103,85 60,110 17,85 17,35" stroke="#C5A059" stroke-width="0.8" opacity="0.6" fill="none"/>
-                            
-                            <!-- Eucalyptus Leaves wrapped on Wreath -->
                             <path d="M 15,40 C 5,20 30,15 35,30 C 40,45 20,50 15,40 Z" fill="#6C8370" opacity="0.85"/>
                             <path d="M 20,75 C 0,80 15,100 30,90 C 45,80 30,65 20,75 Z" fill="#536857" opacity="0.8"/>
-                            <path d="M 85,20 C 100,10 110,30 95,40 C 80,50 75,30 85,20 Z" fill="#88A08D" opacity="0.85"/>
+                            <path d="M 85,20 C 100,10 110,30 95,40 C 80,50 75,30 85,20 Z" fill="#8A9A86" opacity="0.85"/>
                             <path d="M 90,80 C 110,85 100,105 85,95 C 70,85 80,70 90,80 Z" fill="#6C8370" opacity="0.9"/>
                         </svg>
 
-                        <!-- Monogram Text inside -->
                         <div class="font-serif text-2xl font-medium text-sage-600 tracking-wider flex items-center space-x-1">
                             <span>J</span>
                             <span class="font-script text-xl text-gold-dark">&</span>
@@ -247,17 +226,17 @@
                     </div>
                 </div>
 
-                <!-- 5. Script Greeting: "Liebe Gäste" -->
-                <p class="font-script text-3xl text-gold-dark mt-6 mb-2">
-                    Liebe Gäste
+                <!-- 5. Script Greeting: "Liebe Familie, liebe Freunde," -->
+                <p class="font-script text-3xl text-gold-dark mt-4 mb-2">
+                    Liebe Familie, liebe Freunde,
                 </p>
 
                 <!-- 6. Invitation Text -->
-                <p class="font-sans text-xs md:text-sm text-sage-700 leading-relaxed max-w-xs mx-auto font-light tracking-wide">
-                    Wir freuen uns unendlich, diesen besonderen Tag im Kreise unserer liebsten Menschen zu feiern und laden euch herzlich zu unserer Hochzeit ein.
+                <p class="font-sans text-xs md:text-sm text-sage-800 leading-relaxed max-w-xs mx-auto font-light tracking-wide">
+                    wir möchten den Beginn unseres gemeinsamen Ehelebens mit den Menschen feiern, die uns am meisten am Herzen liegen. Wir laden euch von ganzem Herzen ein, diesen unvergesslichen Tag mit uns in Kerken zu verbringen!
                 </p>
 
-                <!-- Scroll down helper icon -->
+                <!-- Scroll down bounce indicator -->
                 <div class="mt-8 pt-2">
                     <a href="#countdown" class="inline-block text-gold hover:text-gold-dark transition animate-bounce">
                         <i class="fa-solid fa-chevron-down text-lg"></i>
@@ -266,393 +245,484 @@
             </div>
         </section>
 
-        <!-- SECTION 2: LIVE COUNTDOWN TIMER -->
-        <section id="countdown" class="bg-cream-100/90 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-cream-300 invitation-card-shadow text-center">
-            <p class="font-script text-3xl text-gold-dark mb-2">Die Vorfreude steigt</p>
-            <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-700 uppercase mb-8">
-                Countdown bis zum großen Tag
+        <!-- SECTION 2: COUNTDOWN & QUICK INFO CARD -->
+        <section id="countdown" class="bg-cream-100/95 backdrop-blur-sm rounded-2xl p-6 md:p-10 border border-cream-300 invitation-card-shadow text-center">
+            
+            <p class="font-script text-3xl text-gold-dark mb-1">Vorfreude</p>
+            <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-800 uppercase mb-6">
+                Bis zu unserem großen Tag
             </h2>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-2xl mx-auto">
-                <div class="bg-sage-50/80 p-4 rounded-xl border border-sage-200 shadow-sm">
+            <!-- Live Countdown Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-10">
+                <div class="bg-cream-200/60 p-4 rounded-xl border border-sage-200/80 shadow-sm">
                     <span id="cd-days" class="font-serif text-3xl md:text-5xl font-bold text-sage-700 block">00</span>
-                    <span class="font-sans text-xs uppercase tracking-widest text-sage-500 mt-1 block">Tage</span>
+                    <span class="font-sans text-[10px] md:text-xs uppercase tracking-widest text-sage-600 font-semibold mt-1 block">Tage</span>
                 </div>
-                <div class="bg-sage-50/80 p-4 rounded-xl border border-sage-200 shadow-sm">
+                <div class="bg-cream-200/60 p-4 rounded-xl border border-sage-200/80 shadow-sm">
                     <span id="cd-hours" class="font-serif text-3xl md:text-5xl font-bold text-sage-700 block">00</span>
-                    <span class="font-sans text-xs uppercase tracking-widest text-sage-500 mt-1 block">Stunden</span>
+                    <span class="font-sans text-[10px] md:text-xs uppercase tracking-widest text-sage-600 font-semibold mt-1 block">Stunden</span>
                 </div>
-                <div class="bg-sage-50/80 p-4 rounded-xl border border-sage-200 shadow-sm">
+                <div class="bg-cream-200/60 p-4 rounded-xl border border-sage-200/80 shadow-sm">
                     <span id="cd-minutes" class="font-serif text-3xl md:text-5xl font-bold text-sage-700 block">00</span>
-                    <span class="font-sans text-xs uppercase tracking-widest text-sage-500 mt-1 block">Minuten</span>
+                    <span class="font-sans text-[10px] md:text-xs uppercase tracking-widest text-sage-600 font-semibold mt-1 block">Minuten</span>
                 </div>
-                <div class="bg-sage-50/80 p-4 rounded-xl border border-sage-200 shadow-sm">
+                <div class="bg-cream-200/60 p-4 rounded-xl border border-sage-200/80 shadow-sm">
                     <span id="cd-seconds" class="font-serif text-3xl md:text-5xl font-bold text-sage-700 block">00</span>
-                    <span class="font-sans text-xs uppercase tracking-widest text-sage-500 mt-1 block">Sekunden</span>
+                    <span class="font-sans text-[10px] md:text-xs uppercase tracking-widest text-sage-600 font-semibold mt-1 block">Sekunden</span>
                 </div>
             </div>
 
-            <!-- Save to Calendar Button -->
-            <div class="mt-8">
-                <button onclick="downloadICS()" class="inline-flex items-center space-x-2 bg-cream-50 border border-gold/60 text-gold-dark hover:bg-gold hover:text-white px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-medium transition duration-300 shadow-sm">
-                    <i class="fa-regular fa-calendar-plus text-sm"></i>
-                    <span>In Kalender eintragen (.ics)</span>
+            <!-- Quick Info Tiles -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left mb-8">
+                <div class="p-4 bg-sage-50/80 rounded-xl border border-sage-200 flex items-start space-x-3">
+                    <i class="fa-regular fa-calendar-days text-gold text-xl mt-1"></i>
+                    <div>
+                        <span class="font-sans text-[10px] uppercase tracking-wider text-sage-500 font-bold block">Datum</span>
+                        <p class="font-serif text-base font-semibold text-sage-800">12. Dezember 2026</p>
+                        <p class="text-xs text-sage-600">Samstag</p>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-sage-50/80 rounded-xl border border-sage-200 flex items-start space-x-3">
+                    <i class="fa-solid fa-church text-gold text-xl mt-1"></i>
+                    <div>
+                        <span class="font-sans text-[10px] uppercase tracking-wider text-sage-500 font-bold block">Trauung & Empfang</span>
+                        <p class="font-serif text-base font-semibold text-sage-800">13:00 Uhr</p>
+                        <p class="text-xs text-sage-600">Michael-Buyx-Str. 2, Nieukerk</p>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-sage-50/80 rounded-xl border border-sage-200 flex items-start space-x-3">
+                    <i class="fa-solid fa-champagne-glasses text-gold text-xl mt-1"></i>
+                    <div>
+                        <span class="font-sans text-[10px] uppercase tracking-wider text-sage-500 font-bold block">Party & Feier</span>
+                        <p class="font-serif text-base font-semibold text-sage-800">ab 16:00 Uhr</p>
+                        <p class="text-xs text-sage-600">Kempener Str. 52a, Kerken</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jump Action Buttons -->
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#ablauf" class="bg-sage-700 hover:bg-sage-800 text-cream-100 px-6 py-3 rounded-full text-xs uppercase tracking-widest font-medium transition shadow-md">
+                    <i class="fa-solid fa-clock mr-2"></i> Zum Tagesablauf
+                </a>
+                <a href="#locations" class="bg-cream-50 border border-gold/70 text-gold-dark hover:bg-gold hover:text-white px-6 py-3 rounded-full text-xs uppercase tracking-widest font-medium transition shadow-sm">
+                    <i class="fa-solid fa-map-location-dot mr-2"></i> Locations & Route
+                </a>
+            </div>
+        </section>
+
+        <!-- SECTION 3: TAGESABLAUF (TIMELINE) -->
+        <section id="ablauf" class="bg-cream-100/95 backdrop-blur-sm rounded-2xl p-6 md:p-12 border border-cream-300 invitation-card-shadow">
+            <div class="text-center mb-10">
+                <p class="font-script text-3xl text-gold-dark mb-1">Unser Festtag im Überblick</p>
+                <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-800 uppercase">
+                    Tagesablauf
+                </h2>
+                <div class="w-12 h-[1px] bg-gold/50 mx-auto mt-3 mb-4"></div>
+                <p class="font-sans text-xs md:text-sm text-sage-600 leading-relaxed max-w-xl mx-auto font-light">
+                    Damit ihr den 12. Dezember 2026 voller Vorfreude planen könnt, haben wir hier alle wichtigen Stationen unseres Hochzeitstages für euch zusammengefasst.
+                </p>
+            </div>
+
+            <div class="relative max-w-3xl mx-auto">
+                <!-- Vertical Timeline Line -->
+                <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-sage-300/70"></div>
+
+                <div class="space-y-10">
+                    
+                    <!-- Station 1: 13:00 Uhr -->
+                    <div class="relative flex flex-col md:flex-row items-start md:items-center">
+                        <div class="pl-12 md:pl-0 w-full md:w-1/2 md:pr-8 md:text-right">
+                            <span class="font-sans text-xs font-bold uppercase tracking-wider text-gold-dark block">13:00 Uhr • Der Moment</span>
+                            <h3 class="font-serif text-xl font-bold text-sage-800">Feierliche Trauung</h3>
+                            <p class="text-xs font-medium text-sage-600 mb-2">Michael-Buyx-Straße 2, 47647 Kerken-Nieukerk</p>
+                            <p class="text-xs text-sage-700 leading-relaxed mb-3">
+                                Wir geben uns das Ja-Wort! Bitte seid rechtzeitig ca. 15–20 Minuten vor Beginn vor Ort, damit alle entspannt ihre Plätze einnehmen können.
+                            </p>
+                            <a href="#location-1" class="inline-flex items-center text-[11px] font-semibold text-gold-dark hover:underline">
+                                <i class="fa-solid fa-location-dot mr-1"></i> Adresse auf der Karte ansehen
+                            </a>
+                        </div>
+                        <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold-dark shadow z-10 my-1">
+                            <i class="fa-solid fa-church text-xs"></i>
+                        </div>
+                        <div class="hidden md:block w-1/2"></div>
+                    </div>
+
+                    <!-- Station 2: 13:30 Uhr -->
+                    <div class="relative flex flex-col md:flex-row items-start md:items-center">
+                        <div class="hidden md:block w-1/2"></div>
+                        <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold-dark shadow z-10 my-1">
+                            <i class="fa-solid fa-champagne-glasses text-xs"></i>
+                        </div>
+                        <div class="pl-12 md:pl-8 w-full md:w-1/2">
+                            <span class="font-sans text-xs font-bold uppercase tracking-wider text-gold-dark block">13:30 Uhr • Anstoßen & Gratulation</span>
+                            <h3 class="font-serif text-xl font-bold text-sage-800">Sektempfang</h3>
+                            <p class="text-xs font-medium text-sage-600 mb-2">Direkt dahinter (Außenbereich / Innenhof)</p>
+                            <p class="text-xs text-sage-700 leading-relaxed">
+                                Im Anschluss an die Trauung stoßen wir direkt hinter dem Gebäude gemeinsam auf die Liebe an, nehmen Glückwünsche entgegen und genießen erste Gespräche.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Station 3: 16:00 Uhr -->
+                    <div class="relative flex flex-col md:flex-row items-start md:items-center">
+                        <div class="pl-12 md:pl-0 w-full md:w-1/2 md:pr-8 md:text-right">
+                            <span class="font-sans text-xs font-bold uppercase tracking-wider text-gold-dark block">16:00 Uhr • Location-Wechsel</span>
+                            <h3 class="font-serif text-xl font-bold text-sage-800">Ankunft an der Partylocation</h3>
+                            <p class="text-xs font-medium text-sage-600 mb-2">Kempener Str. 52a, 47647 Kerken</p>
+                            <p class="text-xs text-sage-700 leading-relaxed mb-3">
+                                Herzlich willkommen in unserer festlichen Partylocation! Die Fahrt von Nieukerk dauert nur ca. 5 bis 7 Minuten. Zeit zum Ankommen, Plätze finden und Wohlfühlen.
+                            </p>
+                            <a href="#location-2" class="inline-flex items-center text-[11px] font-semibold text-gold-dark hover:underline">
+                                <i class="fa-solid fa-location-dot mr-1"></i> Adresse auf der Karte ansehen
+                            </a>
+                        </div>
+                        <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold-dark shadow z-10 my-1">
+                            <i class="fa-solid fa-car text-xs"></i>
+                        </div>
+                        <div class="hidden md:block w-1/2"></div>
+                    </div>
+
+                    <!-- Station 4: 16:30 Uhr -->
+                    <div class="relative flex flex-col md:flex-row items-start md:items-center">
+                        <div class="hidden md:block w-1/2"></div>
+                        <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold-dark shadow z-10 my-1">
+                            <i class="fa-solid fa-cake-candles text-xs"></i>
+                        </div>
+                        <div class="pl-12 md:pl-8 w-full md:w-1/2">
+                            <span class="font-sans text-xs font-bold uppercase tracking-wider text-gold-dark block">16:30 Uhr • Süße Auszeit</span>
+                            <h3 class="font-serif text-xl font-bold text-sage-800">Anschnitt der Hochzeitstorte & Kaffee</h3>
+                            <p class="text-xs font-medium text-sage-600 mb-2">Kempener Str. 52a, 47647 Kerken</p>
+                            <p class="text-xs text-sage-700 leading-relaxed">
+                                Der traditionelle Tortenanschnitt eröffnet den süßen Nachmittag mit frischem Kaffee, Tee und köstlichen Leckereien in entspannter Atmosphäre.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Station 5: 19:00 Uhr -->
+                    <div class="relative flex flex-col md:flex-row items-start md:items-center">
+                        <div class="pl-12 md:pl-0 w-full md:w-1/2 md:pr-8 md:text-right">
+                            <span class="font-sans text-xs font-bold uppercase tracking-wider text-gold-dark block">19:00 Uhr • Kulinarischer Genuss</span>
+                            <h3 class="font-serif text-xl font-bold text-sage-800">Festliches Hochzeitsbuffet</h3>
+                            <p class="text-xs font-medium text-sage-600 mb-2">Kempener Str. 52a, 47647 Kerken</p>
+                            <p class="text-xs text-sage-700 leading-relaxed">
+                                Eröffnung unseres abwechslungsreichen Buffets mit kulinarischen Köstlichkeiten für jeden Geschmack, begleitet von feinen Weinen und erfrischenden Drinks.
+                            </p>
+                        </div>
+                        <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold-dark shadow z-10 my-1">
+                            <i class="fa-solid fa-utensils text-xs"></i>
+                        </div>
+                        <div class="hidden md:block w-1/2"></div>
+                    </div>
+
+                    <!-- Station 6: Im Anschluss -->
+                    <div class="relative flex flex-col md:flex-row items-start md:items-center">
+                        <div class="hidden md:block w-1/2"></div>
+                        <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold-dark shadow z-10 my-1">
+                            <i class="fa-solid fa-music text-xs"></i>
+                        </div>
+                        <div class="pl-12 md:pl-8 w-full md:w-1/2">
+                            <span class="font-sans text-xs font-bold uppercase tracking-wider text-gold-dark block">Im Anschluss • Feiern bis open end</span>
+                            <h3 class="font-serif text-xl font-bold text-sage-800">Party, Musik & Ausklang</h3>
+                            <p class="text-xs font-medium text-sage-600 mb-2">Kempener Str. 52a, 47647 Kerken</p>
+                            <p class="text-xs text-sage-700 leading-relaxed">
+                                Eröffnung der Tanzfläche, Musik, gemeinsame Erinnerungen und ausgelassenes Feiern bis tief in die Nacht.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: ANFAHRT & ORTE (LOCATIONS) -->
+        <section id="locations" class="bg-cream-100/95 backdrop-blur-sm rounded-2xl p-6 md:p-12 border border-cream-300 invitation-card-shadow space-y-10">
+            
+            <div class="text-center">
+                <p class="font-script text-3xl text-gold-dark mb-1">Die Hochzeits-Locations</p>
+                <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-800 uppercase">
+                    Anfahrt & Orte
+                </h2>
+                <div class="w-12 h-[1px] bg-gold/50 mx-auto mt-3 mb-4"></div>
+                <p class="font-sans text-xs md:text-sm text-sage-600 leading-relaxed max-w-xl mx-auto font-light">
+                    Beide Orte liegen nah beieinander in der Gemeinde Kerken am Niederrhein. Die Fahrzeit zwischen Trauort und Partylocation beträgt nur etwa 6 Minuten.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Location 1 Card -->
+                <div id="location-1" class="bg-sage-50/80 rounded-xl p-6 border border-sage-200 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-3 py-1 bg-sage-200 text-sage-800 text-[10px] font-bold uppercase tracking-widest rounded-full">Station 1 • 13:00 Uhr</span>
+                            <span class="text-xs font-semibold text-gold-dark">Kerken-Nieukerk</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-sage-800 mb-1">Trauung & Sektempfang</h3>
+                        <p class="text-xs font-mono text-sage-600 mb-4"><i class="fa-solid fa-location-dot text-gold mr-1"></i> Michael-Buyx-Straße 2, 47647 Kerken-Nieukerk</p>
+                        
+                        <p class="text-xs text-sage-700 leading-relaxed mb-4">
+                            Hier beginnt unser Fest mit der Trauung um 13:00 Uhr. Direkt im Anschluss um 13:30 Uhr findet der Sektempfang unmittelbar hinter dem Gebäude statt – wetterunabhängig und im idyllischen Ambiente zum ersten Anstoßen.
+                        </p>
+
+                        <div class="p-3 bg-cream-100 rounded-lg border border-sage-200/80 mb-6">
+                            <span class="font-sans text-[11px] font-bold uppercase tracking-wider text-sage-700 block mb-1">
+                                <i class="fa-solid fa-square-parking text-gold mr-1"></i> Parken & Anreise:
+                            </span>
+                            <p class="text-[11px] text-sage-600 leading-relaxed">
+                                Parkmöglichkeiten befinden sich auf dem Michael-Buyx-Platz sowie in den anliegenden Straßen in Nieukerk. Der Bahnhof Nieukerk ist nur wenige Gehminuten entfernt.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="space-y-2 pt-2 border-t border-sage-200">
+                        <div class="grid grid-cols-2 gap-2">
+                            <a href="https://maps.google.com/?q=Michael-Buyx-Straße+2,+47647+Kerken-Nieukerk" target="_blank" class="bg-cream-50 border border-sage-300 hover:border-gold text-sage-800 text-[11px] font-medium py-2 px-3 rounded-lg text-center transition flex items-center justify-center space-x-1.5">
+                                <i class="fa-brands fa-google text-gold"></i>
+                                <span>Google Maps</span>
+                            </a>
+                            <a href="https://maps.apple.com/?q=Michael-Buyx-Straße+2,+47647+Kerken-Nieukerk" target="_blank" class="bg-cream-50 border border-sage-300 hover:border-gold text-sage-800 text-[11px] font-medium py-2 px-3 rounded-lg text-center transition flex items-center justify-center space-x-1.5">
+                                <i class="fa-brands fa-apple text-sage-700"></i>
+                                <span>Apple Maps</span>
+                            </a>
+                        </div>
+                        <button onclick="copyToClipboard('Michael-Buyx-Straße 2, 47647 Kerken-Nieukerk', 'Adresse der Trauung')" class="w-full bg-sage-200 hover:bg-sage-300 text-sage-800 text-[11px] font-semibold py-2 px-3 rounded-lg text-center transition flex items-center justify-center space-x-2">
+                            <i class="fa-regular fa-copy"></i>
+                            <span>Adresse kopieren</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Location 2 Card -->
+                <div id="location-2" class="bg-sage-50/80 rounded-xl p-6 border border-sage-200 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-3 py-1 bg-sage-200 text-sage-800 text-[10px] font-bold uppercase tracking-widest rounded-full">Station 2 • ab 16:00 Uhr</span>
+                            <span class="text-xs font-semibold text-gold-dark">Kerken</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-sage-800 mb-1">Partylocation & Festsaal</h3>
+                        <p class="text-xs font-mono text-sage-600 mb-4"><i class="fa-solid fa-location-dot text-gold mr-1"></i> Kempener Str. 52a, 47647 Kerken</p>
+                        
+                        <p class="text-xs text-sage-700 leading-relaxed mb-4">
+                            Ab 16:00 Uhr treffen wir uns hier zur großen Feier! Um 16:30 Uhr schneiden wir die Hochzeitstorte bei Kaffee und Gebäck an, bevor um 19:00 Uhr das Buffet eröffnet wird und wir gemeinsam eine ausgelassene Party feiern.
+                        </p>
+
+                        <div class="p-3 bg-cream-100 rounded-lg border border-sage-200/80 mb-6">
+                            <span class="font-sans text-[11px] font-bold uppercase tracking-wider text-sage-700 block mb-1">
+                                <i class="fa-solid fa-square-parking text-gold mr-1"></i> Parken & Übergang:
+                            </span>
+                            <p class="text-[11px] text-sage-600 leading-relaxed">
+                                Ausreichend Parkmöglichkeiten direkt vor Ort an der Kempener Str. 52a. Fahrzeit von Nieukerk ca. 6 Minuten (ca. 4,5 km) über die B9 / Kempener Str.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="space-y-2 pt-2 border-t border-sage-200">
+                        <div class="grid grid-cols-2 gap-2">
+                            <a href="https://maps.google.com/?q=Kempener+Str.+52a,+47647+Kerken" target="_blank" class="bg-cream-50 border border-sage-300 hover:border-gold text-sage-800 text-[11px] font-medium py-2 px-3 rounded-lg text-center transition flex items-center justify-center space-x-1.5">
+                                <i class="fa-brands fa-google text-gold"></i>
+                                <span>Google Maps</span>
+                            </a>
+                            <a href="https://maps.apple.com/?q=Kempener+Str.+52a,+47647+Kerken" target="_blank" class="bg-cream-50 border border-sage-300 hover:border-gold text-sage-800 text-[11px] font-medium py-2 px-3 rounded-lg text-center transition flex items-center justify-center space-x-1.5">
+                                <i class="fa-brands fa-apple text-sage-700"></i>
+                                <span>Apple Maps</span>
+                            </a>
+                        </div>
+                        <button onclick="copyToClipboard('Kempener Str. 52a, 47647 Kerken', 'Adresse der Partylocation')" class="w-full bg-sage-200 hover:bg-sage-300 text-sage-800 text-[11px] font-semibold py-2 px-3 rounded-lg text-center transition flex items-center justify-center space-x-2">
+                            <i class="fa-regular fa-copy"></i>
+                            <span>Adresse kopieren</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Route Info Banner -->
+            <div class="p-6 bg-sage-700 text-cream-100 rounded-xl shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-full bg-cream-100/10 border border-gold/40 flex items-center justify-center text-gold-light text-xl shrink-0">
+                        <i class="fa-solid fa-route"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif text-lg font-semibold text-cream-50">Kurze Verbindung: ca. 6 Minuten Fahrtweg</h4>
+                        <p class="text-xs text-sage-200">Von Nieukerk (Trauung) zur Partylocation (Kempener Str. 52a) sind es nur 4,5 km.</p>
+                    </div>
+                </div>
+                <a href="https://www.google.com/maps/dir/Michael-Buyx-Straße+2,+47647+Kerken/Kempener+Str.+52a,+47647+Kerken" target="_blank" class="whitespace-nowrap bg-gold hover:bg-gold-dark text-white text-xs uppercase tracking-widest font-semibold px-5 py-3 rounded-full transition shadow">
+                    Route zwischen beiden Orten anzeigen <i class="fa-solid fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+
+        </section>
+
+        <!-- SECTION 5: KALENDER-EXPORT SECTION -->
+        <section id="kalender" class="bg-cream-100/95 backdrop-blur-sm rounded-2xl p-6 md:p-10 border border-cream-300 invitation-card-shadow text-center">
+            <p class="font-script text-3xl text-gold-dark mb-1">Den Tag nicht verpassen</p>
+            <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-800 uppercase mb-3">
+                Termin im Kalender vormerken
+            </h2>
+            <p class="font-sans text-xs md:text-sm text-sage-600 leading-relaxed max-w-lg mx-auto font-light mb-8">
+                Speichert euch den 12.12.2026 direkt mit einem Klick in eurem persönlichen Kalender auf dem Smartphone oder Computer.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4 max-w-md mx-auto">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Hochzeit+von+Janine+%26+Marvin&dates=20261212T120000Z/20261213T020000Z&details=Wir+feiern+unsere+Hochzeit!+Trauung+um+13:00+Uhr+in+Kerken-Nieukerk.&location=Michael-Buyx-Str.+2,+47647+Kerken" target="_blank" class="flex-1 min-w-[200px] bg-cream-50 border border-sage-300 hover:border-gold text-sage-800 px-5 py-3.5 rounded-full text-xs uppercase tracking-wider font-semibold transition flex items-center justify-center space-x-2 shadow-sm">
+                    <i class="fa-brands fa-google text-gold text-base"></i>
+                    <span>Google Kalender</span>
+                </a>
+                <button onclick="downloadICS()" class="flex-1 min-w-[200px] bg-sage-700 hover:bg-sage-800 text-cream-100 px-5 py-3.5 rounded-full text-xs uppercase tracking-wider font-semibold transition flex items-center justify-center space-x-2 shadow-sm">
+                    <i class="fa-regular fa-calendar-plus text-gold-light text-base"></i>
+                    <span>Apple / Outlook (.ics)</span>
                 </button>
             </div>
         </section>
 
-        <!-- SECTION 3: TAGESABLAUF / TIMELINE -->
-        <section id="ablauf" class="bg-cream-100/90 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-cream-300 invitation-card-shadow">
-            <div class="text-center mb-12">
-                <p class="font-script text-3xl text-gold-dark mb-1">Unser Hochzeitstag</p>
-                <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-700 uppercase">
-                    Tagesablauf
-                </h2>
-                <div class="w-12 h-[1px] bg-gold/50 mx-auto mt-3"></div>
-            </div>
-
-            <div class="relative max-w-2xl mx-auto">
-                <!-- Vertical Center Line -->
-                <div class="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-sage-200"></div>
-
-                <!-- Timeline Items -->
-                <div class="space-y-12">
-                    
-                    <!-- Item 1 -->
-                    <div class="relative flex items-center justify-between md:flex-row flex-col">
-                        <div class="w-full md:w-5/12 text-center md:text-right pr-0 md:pr-6 mb-2 md:mb-0">
-                            <span class="font-serif text-xl font-bold text-gold-dark block">14:00 Uhr</span>
-                            <h3 class="font-serif text-lg font-semibold text-sage-700">Kirchliche Trauung</h3>
-                            <p class="font-sans text-xs text-sage-500 mt-1">St. Maria Kirche, Romantische Allee 12</p>
-                        </div>
-                        <div class="z-10 w-10 h-10 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold-dark shadow">
-                            <i class="fa-solid fa-church text-sm"></i>
-                        </div>
-                        <div class="w-full md:w-5/12 text-center md:text-left pl-0 md:pl-6 hidden md:block"></div>
-                    </div>
-
-                    <!-- Item 2 -->
-                    <div class="relative flex items-center justify-between md:flex-row flex-col">
-                        <div class="w-full md:w-5/12 text-center md:text-right pr-0 md:pr-6 hidden md:block"></div>
-                        <div class="z-10 w-10 h-10 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold-dark shadow">
-                            <i class="fa-solid fa-champagne-glasses text-sm"></i>
-                        </div>
-                        <div class="w-full md:w-5/12 text-center md:text-left pl-0 md:pl-6 mt-2 md:mt-0">
-                            <span class="font-serif text-xl font-bold text-gold-dark block">15:30 Uhr</span>
-                            <h3 class="font-serif text-lg font-semibold text-sage-700">Sektempfang & Gratulation</h3>
-                            <p class="font-sans text-xs text-sage-500 mt-1">Im malerischen Schlossgarten mit kleinen Häppchen</p>
-                        </div>
-                    </div>
-
-                    <!-- Item 3 -->
-                    <div class="relative flex items-center justify-between md:flex-row flex-col">
-                        <div class="w-full md:w-5/12 text-center md:text-right pr-0 md:pr-6 mb-2 md:mb-0">
-                            <span class="font-serif text-xl font-bold text-gold-dark block">18:00 Uhr</span>
-                            <h3 class="font-serif text-lg font-semibold text-sage-700">Festliches Abendessen</h3>
-                            <p class="font-sans text-xs text-sage-500 mt-1">3-Gänge-Gourmetmenü & Reden im Festsaal</p>
-                        </div>
-                        <div class="z-10 w-10 h-10 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold-dark shadow">
-                            <i class="fa-solid fa-utensils text-sm"></i>
-                        </div>
-                        <div class="w-full md:w-5/12 text-center md:text-left pl-0 md:pl-6 hidden md:block"></div>
-                    </div>
-
-                    <!-- Item 4 -->
-                    <div class="relative flex items-center justify-between md:flex-row flex-col">
-                        <div class="w-full md:w-5/12 text-center md:text-right pr-0 md:pr-6 hidden md:block"></div>
-                        <div class="z-10 w-10 h-10 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold-dark shadow">
-                            <i class="fa-solid fa-music text-sm"></i>
-                        </div>
-                        <div class="w-full md:w-5/12 text-center md:text-left pl-0 md:pl-6 mt-2 md:mt-0">
-                            <span class="font-serif text-xl font-bold text-gold-dark block">21:00 Uhr</span>
-                            <h3 class="font-serif text-lg font-semibold text-sage-700">Eröffnungstanz & Party</h3>
-                            <p class="font-sans text-xs text-sage-500 mt-1">Musik, DJ, Cocktails & Tanz bis in die frühen Morgenstunden</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 4: LOCATION & VENUE DETAILS -->
-        <section id="location" class="bg-cream-100/90 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-cream-300 invitation-card-shadow">
-            <div class="text-center mb-10">
-                <p class="font-script text-3xl text-gold-dark mb-1">Wo wir feiern</p>
-                <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-700 uppercase">
-                    Location & Anreise
-                </h2>
-                <div class="w-12 h-[1px] bg-gold/50 mx-auto mt-3"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <!-- Location Info -->
-                <div class="space-y-6 text-sage-700">
-                    <div class="bg-sage-50/70 p-6 rounded-xl border border-sage-200">
-                        <div class="flex items-start space-x-4">
-                            <div class="text-gold text-2xl mt-1">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-serif text-xl font-semibold text-sage-800">Schloss & Park Gut Botanica</h3>
-                                <p class="text-sm text-sage-600 mt-1">Eukalyptus-Allee 1</p>
-                                <p class="text-sm text-sage-600">12345 Traumstadt</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-sage-50/70 p-6 rounded-xl border border-sage-200">
-                        <div class="flex items-start space-x-4">
-                            <div class="text-gold text-2xl mt-1">
-                                <i class="fa-solid fa-bed"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-serif text-xl font-semibold text-sage-800">Übernachtungsmöglichkeiten</h3>
-                                <p class="text-sm text-sage-600 mt-1">Für unsere weit angereisten Gäste haben wir im nahegelegenen Hotel Parkblick Zimmerkontingente reserviert (Stichwort: "Janine & Marvin").</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pt-2">
-                        <a href="https://maps.google.com" target="_blank" class="inline-flex items-center space-x-2 bg-sage-600 hover:bg-sage-700 text-white px-6 py-3 rounded-full text-xs uppercase tracking-widest font-medium transition shadow-md">
-                            <i class="fa-solid fa-route"></i>
-                            <span>Route in Google Maps öffnen</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Stylized Venue Map Card Placeholder -->
-                <div class="relative bg-sage-100 rounded-xl overflow-hidden border border-sage-200 shadow-inner h-80 flex flex-col items-center justify-center text-center p-6 bg-[radial-gradient(#CBD5CC_1px,transparent_1px)] [background-size:16px_16px]">
-                    <div class="w-16 h-16 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold text-2xl mb-4 shadow">
-                        <i class="fa-solid fa-map-location-dot"></i>
-                    </div>
-                    <h4 class="font-serif text-lg font-semibold text-sage-800">Schloss Gut Botanica</h4>
-                    <p class="text-xs text-sage-600 mt-1 max-w-xs">Kostenfreie Parkplätze stehen direkt auf dem Schlossgelände zur Verfügung.</p>
-                    <span class="mt-4 px-3 py-1 bg-cream-100 text-sage-700 text-[10px] uppercase tracking-widest rounded-full border border-gold/40">
-                        Parkplätze vorhanden
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 5: INTERACTIVE RSVP FORM -->
-        <section id="rsvp" class="bg-cream-100/95 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-cream-300 invitation-card-shadow relative">
+        <!-- SECTION 6: WISSENSWERTES (FAQ) -->
+        <section id="faq" class="bg-cream-100/95 backdrop-blur-sm rounded-2xl p-6 md:p-12 border border-cream-300 invitation-card-shadow">
             
-            <div class="text-center mb-8">
-                <p class="font-script text-3xl text-gold-dark mb-1">Bitte antwortet uns</p>
-                <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-700 uppercase">
-                    R.S.V.P.
+            <div class="text-center mb-10">
+                <p class="font-script text-3xl text-gold-dark mb-1">Fragen & Antworten</p>
+                <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-800 uppercase">
+                    Wissenswertes
                 </h2>
-                <p class="font-sans text-xs text-sage-500 tracking-wider uppercase mt-2">
-                    Wir bitten um Rückmeldung bis zum 15. Oktober 2026
-                </p>
-                <div class="w-12 h-[1px] bg-gold/50 mx-auto mt-3"></div>
-            </div>
-
-            <!-- RSVP Status Banner if saved -->
-            <div id="rsvp-status-banner" class="hidden mb-6 p-4 rounded-xl bg-sage-100 border border-sage-300 text-center">
-                <p class="text-sm font-medium text-sage-800">
-                    <i class="fa-solid fa-circle-check text-sage-600 mr-2"></i>
-                    Vielen Dank! Du hast bereits eine Rückmeldung abgegeben. Du kannst das Formular erneut absenden, um deine Daten zu aktualisieren.
+                <div class="w-12 h-[1px] bg-gold/50 mx-auto mt-3 mb-4"></div>
+                <p class="font-sans text-xs md:text-sm text-sage-600 leading-relaxed max-w-xl mx-auto font-light">
+                    Alles, was ihr für einen rundum entspannten und unvergesslichen Hochzeitstag wissen müsst.
                 </p>
             </div>
 
-            <form id="rsvpForm" onsubmit="handleRSVPSubmit(event)" class="max-w-xl mx-auto space-y-6">
+            <div class="space-y-4 max-w-2xl mx-auto">
                 
-                <!-- Attendance Toggle -->
-                <div class="grid grid-cols-2 gap-4">
-                    <label class="cursor-pointer">
-                        <input type="radio" name="attendance" value="yes" checked class="peer sr-only" onchange="toggleRSVPFields(true)">
-                        <div class="p-4 rounded-xl border-2 border-sage-200 peer-checked:border-gold peer-checked:bg-sage-50 text-center transition">
-                            <i class="fa-solid fa-heart text-gold text-xl block mb-1"></i>
-                            <span class="font-serif text-sm font-semibold text-sage-700 block">Ich / Wir kommen gerne!</span>
-                        </div>
-                    </label>
-
-                    <label class="cursor-pointer">
-                        <input type="radio" name="attendance" value="no" class="peer sr-only" onchange="toggleRSVPFields(false)">
-                        <div class="p-4 rounded-xl border-2 border-sage-200 peer-checked:border-sage-400 peer-checked:bg-sage-100 text-center transition">
-                            <i class="fa-solid fa-heart-crack text-sage-400 text-xl block mb-1"></i>
-                            <span class="font-serif text-sm font-semibold text-sage-700 block">Kann leider nicht</span>
-                        </div>
-                    </label>
-                </div>
-
-                <!-- Names Input -->
-                <div>
-                    <label class="block font-sans text-xs uppercase tracking-wider text-sage-700 mb-2">Vor- und Nachname(n) *</label>
-                    <input type="text" id="guestNames" required placeholder="z. B. Max & Anna Mustermann" class="w-full px-4 py-3 rounded-lg bg-cream-50 border border-sage-300 focus:outline-none focus:border-gold text-sm text-sage-800">
-                </div>
-
-                <!-- Conditional Fields (Only if attending) -->
-                <div id="attending-fields" class="space-y-6">
-                    <!-- Guest Count -->
-                    <div>
-                        <label class="block font-sans text-xs uppercase tracking-wider text-sage-700 mb-2">Anzahl der Personen</label>
-                        <select id="guestCount" class="w-full px-4 py-3 rounded-lg bg-cream-50 border border-sage-300 focus:outline-none focus:border-gold text-sm text-sage-800">
-                            <option value="1">1 Person</option>
-                            <option value="2" selected>2 Personen</option>
-                            <option value="3">3 Personen</option>
-                            <option value="4">4 Personen (Familie)</option>
-                        </select>
-                    </div>
-
-                    <!-- Menu Preferences -->
-                    <div>
-                        <label class="block font-sans text-xs uppercase tracking-wider text-sage-700 mb-2">Essenswünsche / Unverträglichkeiten</label>
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                            <label class="flex items-center space-x-2 text-xs text-sage-700 cursor-pointer">
-                                <input type="checkbox" name="food" value="Fleisch" class="rounded text-sage-600 focus:ring-gold">
-                                <span>Klassisch / Fleisch</span>
-                            </label>
-                            <label class="flex items-center space-x-2 text-xs text-sage-700 cursor-pointer">
-                                <input type="checkbox" name="food" value="Vegetarisch" class="rounded text-sage-600 focus:ring-gold">
-                                <span>Vegetarisch</span>
-                            </label>
-                            <label class="flex items-center space-x-2 text-xs text-sage-700 cursor-pointer">
-                                <input type="checkbox" name="food" value="Vegan" class="rounded text-sage-600 focus:ring-gold">
-                                <span>Vegan</span>
-                            </label>
-                        </div>
-                        <input type="text" id="allergies" placeholder="Allergien oder besondere Hinweise..." class="w-full mt-3 px-4 py-2.5 rounded-lg bg-cream-50 border border-sage-300 focus:outline-none focus:border-gold text-xs text-sage-800">
-                    </div>
-
-                    <!-- Song Request -->
-                    <div>
-                        <label class="block font-sans text-xs uppercase tracking-wider text-sage-700 mb-2">Euer Musikwunsch für die Tanzfläche 🎵</label>
-                        <input type="text" id="songWish" placeholder="Künstler - Songtitel" class="w-full px-4 py-3 rounded-lg bg-cream-50 border border-sage-300 focus:outline-none focus:border-gold text-sm text-sage-800">
-                    </div>
-                </div>
-
-                <!-- Personal Message -->
-                <div>
-                    <label class="block font-sans text-xs uppercase tracking-wider text-sage-700 mb-2">Persönliche Nachricht an das Brautpaar</label>
-                    <textarea id="message" rows="3" placeholder="Wir freuen uns schon..." class="w-full px-4 py-3 rounded-lg bg-cream-50 border border-sage-300 focus:outline-none focus:border-gold text-sm text-sage-800"></textarea>
-                </div>
-
-                <!-- Submit Button -->
-                <div class="text-center pt-2">
-                    <button type="submit" class="w-full md:w-auto bg-sage-600 hover:bg-sage-700 text-white font-sans text-xs uppercase tracking-widest font-semibold px-10 py-4 rounded-full transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                        <i class="fa-solid fa-paper-plane mr-2"></i> Rückmeldung Absenden
+                <!-- FAQ Item 1 -->
+                <div class="border border-sage-200 rounded-xl overflow-hidden bg-sage-50/60 transition">
+                    <button onclick="toggleFAQ(this)" class="w-full p-4 text-left font-serif text-lg font-semibold text-sage-800 flex justify-between items-center focus:outline-none">
+                        <span class="flex items-center space-x-2">
+                            <span class="px-2.5 py-0.5 bg-gold/20 text-gold-dark text-[10px] uppercase font-sans font-bold rounded-full">Wichtiger Hinweis</span>
+                            <span>Muss ich zu- oder absagen?</span>
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-sage-500 text-sm transition-transform duration-200"></i>
                     </button>
+                    <div class="px-4 pb-4 hidden text-xs text-sage-700 leading-relaxed border-t border-sage-200/50 pt-3">
+                        Nein, eine gesonderte Zu- oder Absage ist nicht erforderlich. Wir haben euch fest in unsere Herzen und in unsere Planungen eingeschlossen und freuen uns riesig darauf, den Tag gemeinsam mit euch zu zelebrieren!
+                    </div>
                 </div>
 
-            </form>
+                <!-- FAQ Item 2 -->
+                <div class="border border-sage-200 rounded-xl overflow-hidden bg-sage-50/60 transition">
+                    <button onclick="toggleFAQ(this)" class="w-full p-4 text-left font-serif text-lg font-semibold text-sage-800 flex justify-between items-center focus:outline-none">
+                        <span class="flex items-center space-x-2">
+                            <span class="px-2.5 py-0.5 bg-sage-200 text-sage-800 text-[10px] uppercase font-sans font-bold rounded-full">Festlich Elegant</span>
+                            <span>Gibt es einen Dresscode?</span>
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-sage-500 text-sm transition-transform duration-200"></i>
+                    </button>
+                    <div class="px-4 pb-4 hidden text-xs text-sage-700 leading-relaxed border-t border-sage-200/50 pt-3">
+                        Wir freuen uns über festlich-elegante Kleidung, in der ihr euch wohlfühlt und den ganzen Tag mit uns tanzen und feiern könnt.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border border-sage-200 rounded-xl overflow-hidden bg-sage-50/60 transition">
+                    <button onclick="toggleFAQ(this)" class="w-full p-4 text-left font-serif text-lg font-semibold text-sage-800 flex justify-between items-center focus:outline-none">
+                        <span class="flex items-center space-x-2">
+                            <span class="px-2.5 py-0.5 bg-sage-200 text-sage-800 text-[10px] uppercase font-sans font-bold rounded-full">Flitterwochenkasse</span>
+                            <span>Was wünscht ihr euch zur Hochzeit?</span>
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-sage-500 text-sm transition-transform duration-200"></i>
+                    </button>
+                    <div class="px-4 pb-4 hidden text-xs text-sage-700 leading-relaxed border-t border-sage-200/50 pt-3">
+                        Eure Anwesenheit und gemeinsame Zeit sind das größte Geschenk für uns. Wer uns darüber hinaus eine Freude machen möchte, darf gerne unsere Flitterwochenkasse unterstützen.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="border border-sage-200 rounded-xl overflow-hidden bg-sage-50/60 transition">
+                    <button onclick="toggleFAQ(this)" class="w-full p-4 text-left font-serif text-lg font-semibold text-sage-800 flex justify-between items-center focus:outline-none">
+                        <span class="flex items-center space-x-2">
+                            <span class="px-2.5 py-0.5 bg-sage-200 text-sage-800 text-[10px] uppercase font-sans font-bold rounded-full">Erinnerungen</span>
+                            <span>Dürfen während des Tages Fotos gemacht werden?</span>
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-sage-500 text-sm transition-transform duration-200"></i>
+                    </button>
+                    <div class="px-4 pb-4 hidden text-xs text-sage-700 leading-relaxed border-t border-sage-200/50 pt-3">
+                        Während der Trauung bitten wir euch, die Handys in der Tasche zu lassen, damit unser Fotograf den Moment ungestört festhalten kann. Danach dürft ihr liebend gerne so viele Fotos und Videos machen, wie ihr möchtet!
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="border border-sage-200 rounded-xl overflow-hidden bg-sage-50/60 transition">
+                    <button onclick="toggleFAQ(this)" class="w-full p-4 text-left font-serif text-lg font-semibold text-sage-800 flex justify-between items-center focus:outline-none">
+                        <span class="flex items-center space-x-2">
+                            <span class="px-2.5 py-0.5 bg-sage-200 text-sage-800 text-[10px] uppercase font-sans font-bold rounded-full">Hotels & Pensionen</span>
+                            <span>Gibt es Übernachtungsmöglichkeiten in der Nähe?</span>
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-sage-500 text-sm transition-transform duration-200"></i>
+                    </button>
+                    <div class="px-4 pb-4 hidden text-xs text-sage-700 leading-relaxed border-t border-sage-200/50 pt-3">
+                        In Kerken, Geldern, Kempen und Umgebung gibt es wunderschöne Hotels, Pensionen und Ferienwohnungen. Falls ihr Unterstützung bei der Suche benötigt, sprecht uns gerne jederzeit an.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="border border-sage-200 rounded-xl overflow-hidden bg-sage-50/60 transition">
+                    <button onclick="toggleFAQ(this)" class="w-full p-4 text-left font-serif text-lg font-semibold text-sage-800 flex justify-between items-center focus:outline-none">
+                        <span class="flex items-center space-x-2">
+                            <span class="px-2.5 py-0.5 bg-sage-200 text-sage-800 text-[10px] uppercase font-sans font-bold rounded-full">Trauzeugen & Fragen</span>
+                            <span>An wen kann ich mich bei Fragen oder Beiträgen wenden?</span>
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-sage-500 text-sm transition-transform duration-200"></i>
+                    </button>
+                    <div class="px-4 pb-4 hidden text-xs text-sage-700 leading-relaxed border-t border-sage-200/50 pt-3">
+                        Bei geheimen Überraschungen, Reden oder organisatorischen Fragen wendet euch gerne direkt an uns oder unsere Trauzeugen.
+                    </div>
+                </div>
+
+            </div>
+
         </section>
 
-        <!-- SECTION 6: HONEYMOON / GIFT REGISTRY (Flitterwochen-Kasse) -->
-        <section id="geschenke" class="bg-cream-100/90 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-cream-300 invitation-card-shadow text-center">
-            <p class="font-script text-3xl text-gold-dark mb-1">Geschenkwunsch</p>
-            <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-700 uppercase">
-                Flitterwochen-Kasse
-            </h2>
-            <div class="w-12 h-[1px] bg-gold/50 mx-auto mt-3 mb-6"></div>
-
-            <p class="font-sans text-sm text-sage-600 leading-relaxed max-w-lg mx-auto mb-8 font-light">
-                An eurem Erscheinen liegt uns das Allermeiste! Wer uns dennoch eine Freude machen möchte, darf unsere Reisekasse für unvergessliche Flitterwochen in der Sonne aufbessern.
+        <!-- SECTION 7: FOOTER / ABSCHLUSS -->
+        <footer class="text-center py-12 px-4 bg-cream-100/90 rounded-2xl border border-cream-300 invitation-card-shadow space-y-6">
+            
+            <p class="font-script text-4xl text-gold-dark">
+                Wir können es kaum erwarten!
             </p>
 
-            <!-- Interactive Bank Details Card / Envelope -->
-            <div class="max-w-md mx-auto bg-sage-50 rounded-xl p-6 border border-sage-200 shadow-sm relative">
-                <div class="w-12 h-12 rounded-full bg-cream-100 border border-gold/50 mx-auto flex items-center justify-center text-gold text-xl mb-3">
-                    <i class="fa-solid fa-plane-departure"></i>
-                </div>
-                <h3 class="font-serif text-lg font-semibold text-sage-800">Bankverbindung für Geschenkbeiträge</h3>
-                
-                <div class="mt-4 p-3 bg-cream-100 rounded border border-sage-200 text-xs text-sage-700 space-y-1 font-mono text-left">
-                    <div class="flex justify-between">
-                        <span class="text-sage-500 font-sans">Empfänger:</span>
-                        <span class="font-bold">Janine & Marvin</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <span class="text-sage-500 font-sans">IBAN:</span>
-                        <span id="iban-text" class="font-bold">DE89 1234 5678 9012 3456 78</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-sage-500 font-sans">Verwendungszweck:</span>
-                        <span>Hochzeit 2026</span>
-                    </div>
-                </div>
+            <p class="font-sans text-xs md:text-sm text-sage-700 leading-relaxed max-w-lg mx-auto font-light">
+                Diesen besonderen Meilenstein unseres Lebens mit den Menschen zu teilen, die uns am wichtigsten sind, bedeutet uns die Welt. Danke, dass ihr diesen Tag zu einem unvergesslichen Fest macht!
+            </p>
 
-                <div class="mt-4 flex justify-center space-x-3">
-                    <button onclick="copyIBAN()" class="bg-cream-100 border border-gold/60 text-gold-dark hover:bg-gold hover:text-white px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium transition flex items-center space-x-1">
-                        <i class="fa-regular fa-copy"></i>
-                        <span>IBAN Kopieren</span>
-                    </button>
-                    <button onclick="openPaypalModal()" class="bg-sage-600 hover:bg-sage-700 text-white px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium transition flex items-center space-x-1">
-                        <i class="fa-brands fa-paypal"></i>
-                        <span>PayPal.me</span>
-                    </button>
-                </div>
-            </div>
-        </section>
+            <p class="font-serif text-2xl font-bold text-sage-800 tracking-wider">
+                Wir freuen uns auf euch!
+            </p>
 
-        <!-- SECTION 7: FAQ & CONTACT -->
-        <section class="bg-cream-100/90 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-cream-300 invitation-card-shadow">
-            <div class="text-center mb-8">
-                <p class="font-script text-3xl text-gold-dark mb-1">Gut zu wissen</p>
-                <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-700 uppercase">
-                    Fragen & Trauzeugen
-                </h2>
-                <div class="w-12 h-[1px] bg-gold/50 mx-auto mt-3"></div>
+            <div class="w-16 h-[1px] bg-gold/50 mx-auto"></div>
+
+            <div class="text-[11px] text-sage-600 space-y-1 font-sans">
+                <p class="font-semibold text-sage-800">12. Dezember 2026 • Michael-Buyx-Straße 2 & Kempener Str. 52a • 47647 Kerken</p>
+                <p class="text-gold-dark font-medium">Hochzeitseinladung • Keine Zu- oder Absage erforderlich</p>
+                <p class="pt-4 text-[10px] text-sage-500">Mit Liebe gestaltet für unseren unvergesslichen Hochzeitstag</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Dresscode -->
-                <div class="p-5 bg-sage-50/70 rounded-xl border border-sage-200">
-                    <h3 class="font-serif text-lg font-semibold text-sage-800 mb-2">
-                        <i class="fa-solid fa-shirt text-gold mr-2"></i> Dresscode
-                    </h3>
-                    <p class="text-xs text-sage-600 leading-relaxed">
-                        Festlich & Elegant (Eukalyptus, Pastelltöne, Naturfarben harmonieren wunderbar mit unserer Hochzeitsdekoration).
-                    </p>
-                </div>
-
-                <!-- Fotos -->
-                <div class="p-5 bg-sage-50/70 rounded-xl border border-sage-200">
-                    <h3 class="font-serif text-lg font-semibold text-sage-800 mb-2">
-                        <i class="fa-solid fa-camera text-gold mr-2"></i> Unplugged Ceremony
-                    </h3>
-                    <p class="text-xs text-sage-600 leading-relaxed">
-                        Während der Trauung bitten wir euch, Handys in der Tasche zu lassen. Unser Fotograf hält alle wichtigen Momente fest.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Trauzeugen Contact -->
-            <div class="mt-8 pt-6 border-t border-sage-200 text-center">
-                <h3 class="font-serif text-lg font-semibold text-sage-800 mb-3">Eure Ansprechpartner / Trauzeugen</h3>
-                <div class="flex justify-center space-x-6 text-xs text-sage-700">
-                    <div>
-                        <span class="font-semibold block text-sage-800">Laura (Trauzeugin)</span>
-                        <span class="text-sage-500">+49 170 1234567</span>
-                    </div>
-                    <div class="border-l border-sage-300 pl-6">
-                        <span class="font-semibold block text-sage-800">Tobias (Trauzeuge)</span>
-                        <span class="text-sage-500">+49 171 7654321</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </footer>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="text-center py-8 text-sage-600 text-xs font-sans border-t border-sage-300/50">
-        <p class="font-serif text-lg text-sage-800 mb-1">Janine & Marvin</p>
-        <p>12. Dezember 2026 • Wir freuen uns auf euch!</p>
-    </footer>
-
-    <!-- Toast Notification Box -->
-    <div id="toast" class="fixed bottom-6 right-6 transform translate-y-24 opacity-0 transition-all duration-300 bg-sage-800 text-white px-6 py-4 rounded-xl shadow-2xl z-50 flex items-center space-x-3 pointer-events-none">
-        <i id="toast-icon" class="fa-solid fa-circle-check text-gold text-xl"></i>
-        <span id="toast-message" class="text-xs font-medium">Ihre Nachricht wurde gespeichert.</span>
+    <!-- Toast Notification Popup -->
+    <div id="toast" class="fixed bottom-6 right-6 transform translate-y-24 opacity-0 transition-all duration-300 bg-sage-800 text-white px-5 py-3.5 rounded-xl shadow-2xl z-50 flex items-center space-x-3 pointer-events-none">
+        <i class="fa-solid fa-circle-check text-gold text-lg"></i>
+        <span id="toast-message" class="text-xs font-medium">Adresse in Zwischenablage kopiert!</span>
     </div>
 
-    <!-- JavaScript Logic -->
     <script>
-        
-        // 1. Live Countdown Timer target: Dec 12, 2026 14:00:00
-        const weddingDate = new Date('2026-12-12T14:00:00').getTime();
+        // 1. Live Countdown Timer targeting Dec 12, 2026 at 13:00:00 CET
+        const weddingDate = new Date('2026-12-12T13:00:00').getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -680,113 +750,77 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // 2. RSVP Form field toggle
-        function toggleRSVPFields(isAttending) {
-            const attendingFields = document.getElementById('attending-fields');
-            if (isAttending) {
-                attendingFields.style.display = 'space-y-6';
-                attendingFields.classList.remove('hidden');
-            } else {
-                attendingFields.classList.add('hidden');
+        // 2. Copy Address to Clipboard with Toast Notification
+        function copyToClipboard(text, label) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast(label ? label + " in Zwischenablage kopiert!" : "Adresse in Zwischenablage kopiert!");
+            } catch (err) {
+                showToast("Adresse konnte nicht kopiert werden.");
             }
+            document.body.removeChild(textArea);
         }
 
-        // 3. Handle RSVP Form Submission & Confetti
-        function handleRSVPSubmit(e) {
-            e.preventDefault();
-
-            const names = document.getElementById('guestNames').value;
-            const attendance = document.querySelector('input[name="attendance"]:checked').value;
-
-            // Trigger confetti if attending
-            if (attendance === 'yes' && typeof confetti === 'function') {
-                confetti({
-                    particleCount: 120,
-                    spread: 70,
-                    origin: { y: 0.6 },
-                    colors: ['#C5A059', '#6C8370', '#FAF9F5', '#E8D298']
-                });
-            }
-
-            // Save state in LocalStorage
-            localStorage.setItem('jm_rsvp_submitted', 'true');
-            localStorage.setItem('jm_rsvp_name', names);
-
-            showToast('Vielen Dank, ' + names + '! deine Rückmeldung wurde gespeichert.');
-            document.getElementById('rsvp-status-banner').classList.remove('hidden');
-        }
-
-        // 4. Toast notification helper
-        function showToast(msg) {
+        function showToast(message) {
             const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-message');
-            toastMsg.innerText = msg;
-
+            const msgSpan = document.getElementById('toast-message');
+            msgSpan.innerText = message;
+            
             toast.classList.remove('translate-y-24', 'opacity-0');
             toast.classList.add('translate-y-0', 'opacity-100');
 
             setTimeout(() => {
                 toast.classList.remove('translate-y-0', 'opacity-100');
                 toast.classList.add('translate-y-24', 'opacity-0');
-            }, 4000);
+            }, 3000);
         }
 
-        // 5. Copy IBAN to clipboard
-        function copyIBAN() {
-            const iban = document.getElementById('iban-text').innerText;
-            const tempInput = document.createElement('input');
-            tempInput.value = iban;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-
-            showToast('IBAN erfolgreich in die Zwischenablage kopiert!');
-        }
-
-        // 6. PayPal Link Helper
-        function openPaypalModal() {
-            showToast('Weiterleitung zu PayPal.me...');
-            setTimeout(() => {
-                window.open('https://paypal.me', '_blank');
-            }, 1000);
-        }
-
-        // 7. Download .ICS Calendar File
+        // 3. Download .ics iCal File
         function downloadICS() {
             const icsData = 
 `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Janine Und Marvin//Hochzeit//DE
+PRODID:-//Janine und Marvin//Hochzeitseinladung//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
 BEGIN:VEVENT
 SUMMARY:Hochzeit von Janine & Marvin
-DESCRIPTION:Wir feiern unsere Hochzeit! Schloss & Park Gut Botanica.
-LOCATION:Eukalyptus-Allee 1, 12345 Traumstadt
-DTSTART:20261212T130000Z
+DESCRIPTION:Wir feiern unsere Hochzeit! Trauung um 13:00 Uhr in Kerken-Nieukerk (Michael-Buyx-Str. 2) und anschließende Feier ab 16:00 Uhr (Kempener Str. 52a).
+LOCATION:Michael-Buyx-Straße 2, 47647 Kerken-Nieukerk
+DTSTART:20261212T120000Z
 DTEND:20261213T020000Z
+STATUS:CONFIRMED
+SEQUENCE:0
 END:VEVENT
 END:VCALENDAR`;
 
             const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
             const link = document.createElement('a');
             link.href = window.URL.createObjectURL(blob);
-            link.setAttribute('download', 'Hochzeit_Janine_Marvin.ics');
+            link.setAttribute('download', 'Hochzeit-Janine-und-Marvin.ics');
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-            showToast('Kalendereintrag (.ics) heruntergeladen!');
+            showToast("Kalendereintrag (.ics) heruntergeladen!");
         }
 
-        // Check previous RSVP state on load
-        window.addEventListener('DOMContentLoaded', () => {
-            if (localStorage.getItem('jm_rsvp_submitted') === 'true') {
-                document.getElementById('rsvp-status-banner').classList.remove('hidden');
-                const savedName = localStorage.getItem('jm_rsvp_name');
-                if (savedName) {
-                    document.getElementById('guestNames').value = savedName;
-                }
+        // 4. Toggle FAQ Accordion
+        function toggleFAQ(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.fa-chevron-down');
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                if (icon) icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                if (icon) icon.style.transform = 'rotate(0deg)';
             }
-        });
+        }
     </script>
 </body>
 </html>
