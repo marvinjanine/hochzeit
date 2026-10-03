@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hochzeit von Janine & Marvin – 12. Dezember 2026</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Canvas Confetti Library for RSVP celebrate -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: {
+                            50: '#F4F7F4',
+                            100: '#E4EAE4',
+                            200: '#CBD5CC', // Main background from image
+                            300: '#B5C4B7',
+                            400: '#94A897',
+                            500: '#6C8370', // Primary dark sage for text
+                            600: '#536857',
+                            700: '#3D4F40',
+                            800: '#2A372D',
+                        },
+                        cream: {
+                            50: '#FFFFFF',
+                            100: '#FAF9F5', // Card background from image
+                            200: '#F2EFE8',
+                            300: '#E6E1D4',
+                        },
+                        gold: {
+                            light: '#E8D298',
+                            DEFAULT: '#C5A059', // Metallic gold wireframe color
+                            dark: '#A37E39',
+                        }
+                    },
+                    fontFamily: {
+                        script: ['"Great Vibes"', 'cursive'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #CBD5CC;
+            color: #3D4F40;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Gold metallic gradient text & borders */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #B88E3E 0%, #E8CB78 50%, #A67C2E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.25);
+        }
+
+        /* Card depth shadow matching high-end print mockup */
+        .invitation-card-shadow {
+            box-shadow: 0 25px 50px -12px rgba(42, 55, 45, 0.18), 0 0 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Floating background leaf movement */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(2deg); }
+        }
+
+        @keyframes floatReverse {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(10px) rotate(-2deg); }
+        }
+
+        .animate-float-slow {
+            animation: floatSlow 8s ease-in-out infinite;
+        }
+
+        .animate-float-reverse {
+            animation: floatReverse 9s ease-in-out infinite;
+        }
+
+        /* Envelope Flip & Interactive Styling */
+        .envelope-wrapper {
+            perspective: 1000px;
+        }
+        
+        .envelope {
+            transition: transform 0.6s ease-in-out;
+            transform-style: preserve-3d;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #CBD5CC;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94A897;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6C8370;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen selection:bg-sage-300 selection:text-sage-800">
+
+    <!-- Background Decor: Eucalyptus Branches (Top Left & Top Right) -->
+    <div class="fixed top-0 left-0 w-64 md:w-96 pointer-events-none z-0 opacity-90 animate-float-slow">
+        <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto transform -scale-x-100">
+            <!-- Watercolor Eucalyptus Leaves SVG rendering -->
+            <path d="M 10,10 Q 90,80 180,160 Q 220,200 270,280" stroke="#4A614E" stroke-width="2.5" fill="none" opacity="0.7" />
+            <!-- Stem branches & leaves -->
+            <path d="M 40,35 C 20,15 10,40 30,55 C 50,70 60,45 40,35 Z" fill="#6B8470" opacity="0.85" />
+            <path d="M 70,60 C 40,40 30,70 55,90 C 80,110 90,80 70,60 Z" fill="#88A08D" opacity="0.8" />
+            <path d="M 110,95 C 80,80 75,115 100,130 C 125,145 135,110 110,95 Z" fill="#546E59" opacity="0.9" />
+            <path d="M 150,135 C 120,120 115,155 140,170 C 165,185 175,150 150,135 Z" fill="#7A947F" opacity="0.85" />
+            <path d="M 190,180 C 160,165 155,200 180,215 C 205,230 215,195 190,180 Z" fill="#435B48" opacity="0.8" />
+            <!-- Secondary sprigs -->
+            <path d="M 80,50 Q 130,30 170,10" stroke="#536857" stroke-width="1.5" fill="none" opacity="0.6" />
+            <path d="M 110,38 C 100,20 125,15 135,30 C 145,45 120,50 110,38 Z" fill="#99AF9E" opacity="0.8" />
+            <path d="M 145,22 C 135,5 160,0 170,15 C 180,30 155,35 145,22 Z" fill="#6B8470" opacity="0.85" />
+        </svg>
+    </div>
+
+    <div class="fixed top-0 right-0 w-64 md:w-96 pointer-events-none z-0 opacity-90 animate-float-reverse">
+        <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+            <path d="M 10,10 Q 90,80 180,160 Q 220,200 270,280" stroke="#4A614E" stroke-width="2.5" fill="none" opacity="0.7" />
+            <path d="M 40,35 C 20,15 10,40 30,55 C 50,70 60,45 40,35 Z" fill="#6B8470" opacity="0.85" />
+            <path d="M 70,60 C 40,40 30,70 55,90 C 80,110 90,80 70,60 Z" fill="#88A08D" opacity="0.8" />
+            <path d="M 110,95 C 80,80 75,115 100,130 C 125,145 135,110 110,95 Z" fill="#546E59" opacity="0.9" />
+            <path d="M 150,135 C 120,120 115,155 140,170 C 165,185 175,150 150,135 Z" fill="#7A947F" opacity="0.85" />
+            <path d="M 190,180 C 160,165 155,200 180,215 C 205,230 215,195 190,180 Z" fill="#435B48" opacity="0.8" />
+        </svg>
+    </div>
+
+    <!-- Navigation Header -->
+    <nav class="sticky top-0 z-50 bg-[#CBD5CC]/80 backdrop-blur-md border-b border-sage-300/50 transition-all duration-300">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="#" class="font-serif text-xl tracking-widest text-sage-800 font-semibold hover:text-gold transition">
+                J <span class="font-script text-gold text-2xl lowercase">&</span> M
+            </a>
+            
+            <div class="hidden md:flex space-x-6 text-sm uppercase tracking-wider font-medium text-sage-700">
+                <a href="#karte" class="hover:text-sage-900 hover:underline underline-offset-4 transition">Einladung</a>
+                <a href="#countdown" class="hover:text-sage-900 hover:underline underline-offset-4 transition">Countdown</a>
+                <a href="#ablauf" class="hover:text-sage-900 hover:underline underline-offset-4 transition">Tagesablauf</a>
+                <a href="#location" class="hover:text-sage-900 hover:underline underline-offset-4 transition">Location</a>
+                <a href="#rsvp" class="hover:text-sage-900 hover:underline underline-offset-4 transition">RSVP</a>
+                <a href="#geschenke" class="hover:text-sage-900 hover:underline underline-offset-4 transition">Geschenke</a>
+            </div>
+
+            <a href="#rsvp" class="bg-sage-600 hover:bg-sage-700 text-white px-4 py-2 rounded-full text-xs uppercase tracking-widest transition shadow-md hover:shadow-lg">
+                <i class="fa-solid fa-envelope mr-1.5"></i> Antworten
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="relative z-10 max-w-4xl mx-auto px-4 py-8 md:py-16 space-y-20">
+
+        <!-- SECTION 1: HERO INVITATION CARD (Exact layout of user image) -->
+        <section id="karte" class="relative flex justify-center items-center py-6">
+            
+            <!-- Outer Golden Geometric Frame (Hexagons behind the card) -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <svg class="w-full max-w-2xl h-[680px]" viewBox="0 0 500 650" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Outer Hexagon Lines -->
+                    <polygon points="250,20 470,180 470,470 250,630 30,470 30,180" stroke="#C5A059" stroke-width="1.2" opacity="0.75"/>
+                    <polygon points="250,40 450,190 450,460 250,610 50,460 50,190" stroke="#C5A059" stroke-width="0.8" opacity="0.5"/>
+                    <!-- Overlapping Geometric Diamonds -->
+                    <rect x="70" y="80" width="360" height="490" transform="rotate(6 250 325)" stroke="#C5A059" stroke-width="0.8" opacity="0.4" fill="none"/>
+                    <rect x="70" y="80" width="360" height="490" transform="rotate(-6 250 325)" stroke="#C5A059" stroke-width="0.8" opacity="0.4" fill="none"/>
+                </svg>
+            </div>
+
+            <!-- Central Vertical Card Container (Off-white / Cream #FAF9F5) -->
+            <div class="relative w-full max-w-md bg-cream-100 rounded-lg invitation-card-shadow border border-cream-300/60 p-8 md:p-12 text-center my-6 transition-transform duration-500 hover:scale-[1.01]">
+                
+                <!-- Inner Fine Gold Border -->
+                <div class="absolute inset-3 border border-gold/30 rounded pointer-events-none"></div>
+
+                <!-- 1. Script Subtitle: "Wir sagen Ja" -->
+                <p class="font-script text-3xl md:text-4xl text-gold-dark mb-4 tracking-wide">
+                    Wir sagen Ja
+                </p>
+
+                <!-- 2. Main Names in Serif All-Caps: "JANINE & MARVIN" -->
+                <h1 class="font-serif text-3xl md:text-5xl font-semibold tracking-[0.2em] text-sage-600 leading-tight uppercase my-2">
+                    Janine<br>
+                    <span class="font-serif font-light text-2xl md:text-3xl tracking-normal text-sage-500 block my-1">&</span>
+                    Marvin
+                </h1>
+
+                <!-- Divider line -->
+                <div class="w-16 h-[1px] bg-gold/50 mx-auto my-6"></div>
+
+                <!-- 3. Subtitle Date: "12. DEZEMBER 2026" -->
+                <p class="font-sans text-xs md:text-sm font-medium tracking-[0.3em] text-sage-700 uppercase my-4">
+                    12. Dezember 2026
+                </p>
+
+                <!-- 4. Monogram Emblem: "J & M" inside Golden Geometric Wreath -->
+                <div class="relative my-8 py-2 flex justify-center items-center">
+                    <div class="relative w-36 h-36 flex items-center justify-center">
+                        <!-- Geometric Gold Rings -->
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 120 120" fill="none">
+                            <polygon points="60,5 108,32 108,88 60,115 12,88 12,32" stroke="#C5A059" stroke-width="1.2" fill="none"/>
+                            <polygon points="60,10 103,35 103,85 60,110 17,85 17,35" stroke="#C5A059" stroke-width="0.8" opacity="0.6" fill="none"/>
+                            
+                            <!-- Eucalyptus Leaves wrapped on Wreath -->
+                            <path d="M 15,40 C 5,20 30,15 35,30 C 40,45 20,50 15,40 Z" fill="#6C8370" opacity="0.85"/>
+                            <path d="M 20,75 C 0,80 15,100 30,90 C 45,80 30,65 20,75 Z" fill="#536857" opacity="0.8"/>
+                            <path d="M 85,20 C 100,10 110,30 95,40 C 80,50 75,30 85,20 Z" fill="#88A08D" opacity="0.85"/>
+                            <path d="M 90,80 C 110,85 100,105 85,95 C 70,85 80,70 90,80 Z" fill="#6C8370" opacity="0.9"/>
+                        </svg>
+
+                        <!-- Monogram Text inside -->
+                        <div class="font-serif text-2xl font-medium text-sage-600 tracking-wider flex items-center space-x-1">
+                            <span>J</span>
+                            <span class="font-script text-xl text-gold-dark">&</span>
+                            <span>M</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Script Greeting: "Liebe Gäste" -->
+                <p class="font-script text-3xl text-gold-dark mt-6 mb-2">
+                    Liebe Gäste
+                </p>
+
+                <!-- 6. Invitation Text -->
+                <p class="font-sans text-xs md:text-sm text-sage-700 leading-relaxed max-w-xs mx-auto font-light tracking-wide">
+                    Wir freuen uns unendlich, diesen besonderen Tag im Kreise unserer liebsten Menschen zu feiern und laden euch herzlich zu unserer Hochzeit ein.
+                </p>
+
+                <!-- Scroll down helper icon -->
+                <div class="mt-8 pt-2">
+                    <a href="#countdown" class="inline-block text-gold hover:text-gold-dark transition animate-bounce">
+                        <i class="fa-solid fa-chevron-down text-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: LIVE COUNTDOWN TIMER -->
+        <section id="countdown" class="bg-cream-100/90 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-cream-300 invitation-card-shadow text-center">
+            <p class="font-script text-3xl text-gold-dark mb-2">Die Vorfreude steigt</p>
+            <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-700 uppercase mb-8">
+                Countdown bis zum großen Tag
+            </h2>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-2xl mx-auto">
+                <div class="bg-sage-50/80 p-4 rounded-xl border border-sage-200 shadow-sm">
+                    <span id="cd-days" class="font-serif text-3xl md:text-5xl font-bold text-sage-700 block">00</span>
+                    <span class="font-sans text-xs uppercase tracking-widest text-sage-500 mt-1 block">Tage</span>
+                </div>
+                <div class="bg-sage-50/80 p-4 rounded-xl border border-sage-200 shadow-sm">
+                    <span id="cd-hours" class="font-serif text-3xl md:text-5xl font-bold text-sage-700 block">00</span>
+                    <span class="font-sans text-xs uppercase tracking-widest text-sage-500 mt-1 block">Stunden</span>
+                </div>
+                <div class="bg-sage-50/80 p-4 rounded-xl border border-sage-200 shadow-sm">
+                    <span id="cd-minutes" class="font-serif text-3xl md:text-5xl font-bold text-sage-700 block">00</span>
+                    <span class="font-sans text-xs uppercase tracking-widest text-sage-500 mt-1 block">Minuten</span>
+                </div>
+                <div class="bg-sage-50/80 p-4 rounded-xl border border-sage-200 shadow-sm">
+                    <span id="cd-seconds" class="font-serif text-3xl md:text-5xl font-bold text-sage-700 block">00</span>
+                    <span class="font-sans text-xs uppercase tracking-widest text-sage-500 mt-1 block">Sekunden</span>
+                </div>
+            </div>
+
+            <!-- Save to Calendar Button -->
+            <div class="mt-8">
+                <button onclick="downloadICS()" class="inline-flex items-center space-x-2 bg-cream-50 border border-gold/60 text-gold-dark hover:bg-gold hover:text-white px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-medium transition duration-300 shadow-sm">
+                    <i class="fa-regular fa-calendar-plus text-sm"></i>
+                    <span>In Kalender eintragen (.ics)</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 3: TAGESABLAUF / TIMELINE -->
+        <section id="ablauf" class="bg-cream-100/90 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-cream-300 invitation-card-shadow">
+            <div class="text-center mb-12">
+                <p class="font-script text-3xl text-gold-dark mb-1">Unser Hochzeitstag</p>
+                <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-700 uppercase">
+                    Tagesablauf
+                </h2>
+                <div class="w-12 h-[1px] bg-gold/50 mx-auto mt-3"></div>
+            </div>
+
+            <div class="relative max-w-2xl mx-auto">
+                <!-- Vertical Center Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-sage-200"></div>
+
+                <!-- Timeline Items -->
+                <div class="space-y-12">
+                    
+                    <!-- Item 1 -->
+                    <div class="relative flex items-center justify-between md:flex-row flex-col">
+                        <div class="w-full md:w-5/12 text-center md:text-right pr-0 md:pr-6 mb-2 md:mb-0">
+                            <span class="font-serif text-xl font-bold text-gold-dark block">14:00 Uhr</span>
+                            <h3 class="font-serif text-lg font-semibold text-sage-700">Kirchliche Trauung</h3>
+                            <p class="font-sans text-xs text-sage-500 mt-1">St. Maria Kirche, Romantische Allee 12</p>
+                        </div>
+                        <div class="z-10 w-10 h-10 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold-dark shadow">
+                            <i class="fa-solid fa-church text-sm"></i>
+                        </div>
+                        <div class="w-full md:w-5/12 text-center md:text-left pl-0 md:pl-6 hidden md:block"></div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative flex items-center justify-between md:flex-row flex-col">
+                        <div class="w-full md:w-5/12 text-center md:text-right pr-0 md:pr-6 hidden md:block"></div>
+                        <div class="z-10 w-10 h-10 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold-dark shadow">
+                            <i class="fa-solid fa-champagne-glasses text-sm"></i>
+                        </div>
+                        <div class="w-full md:w-5/12 text-center md:text-left pl-0 md:pl-6 mt-2 md:mt-0">
+                            <span class="font-serif text-xl font-bold text-gold-dark block">15:30 Uhr</span>
+                            <h3 class="font-serif text-lg font-semibold text-sage-700">Sektempfang & Gratulation</h3>
+                            <p class="font-sans text-xs text-sage-500 mt-1">Im malerischen Schlossgarten mit kleinen Häppchen</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative flex items-center justify-between md:flex-row flex-col">
+                        <div class="w-full md:w-5/12 text-center md:text-right pr-0 md:pr-6 mb-2 md:mb-0">
+                            <span class="font-serif text-xl font-bold text-gold-dark block">18:00 Uhr</span>
+                            <h3 class="font-serif text-lg font-semibold text-sage-700">Festliches Abendessen</h3>
+                            <p class="font-sans text-xs text-sage-500 mt-1">3-Gänge-Gourmetmenü & Reden im Festsaal</p>
+                        </div>
+                        <div class="z-10 w-10 h-10 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold-dark shadow">
+                            <i class="fa-solid fa-utensils text-sm"></i>
+                        </div>
+                        <div class="w-full md:w-5/12 text-center md:text-left pl-0 md:pl-6 hidden md:block"></div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="relative flex items-center justify-between md:flex-row flex-col">
+                        <div class="w-full md:w-5/12 text-center md:text-right pr-0 md:pr-6 hidden md:block"></div>
+                        <div class="z-10 w-10 h-10 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold-dark shadow">
+                            <i class="fa-solid fa-music text-sm"></i>
+                        </div>
+                        <div class="w-full md:w-5/12 text-center md:text-left pl-0 md:pl-6 mt-2 md:mt-0">
+                            <span class="font-serif text-xl font-bold text-gold-dark block">21:00 Uhr</span>
+                            <h3 class="font-serif text-lg font-semibold text-sage-700">Eröffnungstanz & Party</h3>
+                            <p class="font-sans text-xs text-sage-500 mt-1">Musik, DJ, Cocktails & Tanz bis in die frühen Morgenstunden</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: LOCATION & VENUE DETAILS -->
+        <section id="location" class="bg-cream-100/90 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-cream-300 invitation-card-shadow">
+            <div class="text-center mb-10">
+                <p class="font-script text-3xl text-gold-dark mb-1">Wo wir feiern</p>
+                <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-700 uppercase">
+                    Location & Anreise
+                </h2>
+                <div class="w-12 h-[1px] bg-gold/50 mx-auto mt-3"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Location Info -->
+                <div class="space-y-6 text-sage-700">
+                    <div class="bg-sage-50/70 p-6 rounded-xl border border-sage-200">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-gold text-2xl mt-1">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-xl font-semibold text-sage-800">Schloss & Park Gut Botanica</h3>
+                                <p class="text-sm text-sage-600 mt-1">Eukalyptus-Allee 1</p>
+                                <p class="text-sm text-sage-600">12345 Traumstadt</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-sage-50/70 p-6 rounded-xl border border-sage-200">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-gold text-2xl mt-1">
+                                <i class="fa-solid fa-bed"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-xl font-semibold text-sage-800">Übernachtungsmöglichkeiten</h3>
+                                <p class="text-sm text-sage-600 mt-1">Für unsere weit angereisten Gäste haben wir im nahegelegenen Hotel Parkblick Zimmerkontingente reserviert (Stichwort: "Janine & Marvin").</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <a href="https://maps.google.com" target="_blank" class="inline-flex items-center space-x-2 bg-sage-600 hover:bg-sage-700 text-white px-6 py-3 rounded-full text-xs uppercase tracking-widest font-medium transition shadow-md">
+                            <i class="fa-solid fa-route"></i>
+                            <span>Route in Google Maps öffnen</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Stylized Venue Map Card Placeholder -->
+                <div class="relative bg-sage-100 rounded-xl overflow-hidden border border-sage-200 shadow-inner h-80 flex flex-col items-center justify-center text-center p-6 bg-[radial-gradient(#CBD5CC_1px,transparent_1px)] [background-size:16px_16px]">
+                    <div class="w-16 h-16 rounded-full bg-cream-100 border-2 border-gold flex items-center justify-center text-gold text-2xl mb-4 shadow">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <h4 class="font-serif text-lg font-semibold text-sage-800">Schloss Gut Botanica</h4>
+                    <p class="text-xs text-sage-600 mt-1 max-w-xs">Kostenfreie Parkplätze stehen direkt auf dem Schlossgelände zur Verfügung.</p>
+                    <span class="mt-4 px-3 py-1 bg-cream-100 text-sage-700 text-[10px] uppercase tracking-widest rounded-full border border-gold/40">
+                        Parkplätze vorhanden
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: INTERACTIVE RSVP FORM -->
+        <section id="rsvp" class="bg-cream-100/95 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-cream-300 invitation-card-shadow relative">
+            
+            <div class="text-center mb-8">
+                <p class="font-script text-3xl text-gold-dark mb-1">Bitte antwortet uns</p>
+                <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-700 uppercase">
+                    R.S.V.P.
+                </h2>
+                <p class="font-sans text-xs text-sage-500 tracking-wider uppercase mt-2">
+                    Wir bitten um Rückmeldung bis zum 15. Oktober 2026
+                </p>
+                <div class="w-12 h-[1px] bg-gold/50 mx-auto mt-3"></div>
+            </div>
+
+            <!-- RSVP Status Banner if saved -->
+            <div id="rsvp-status-banner" class="hidden mb-6 p-4 rounded-xl bg-sage-100 border border-sage-300 text-center">
+                <p class="text-sm font-medium text-sage-800">
+                    <i class="fa-solid fa-circle-check text-sage-600 mr-2"></i>
+                    Vielen Dank! Du hast bereits eine Rückmeldung abgegeben. Du kannst das Formular erneut absenden, um deine Daten zu aktualisieren.
+                </p>
+            </div>
+
+            <form id="rsvpForm" onsubmit="handleRSVPSubmit(event)" class="max-w-xl mx-auto space-y-6">
+                
+                <!-- Attendance Toggle -->
+                <div class="grid grid-cols-2 gap-4">
+                    <label class="cursor-pointer">
+                        <input type="radio" name="attendance" value="yes" checked class="peer sr-only" onchange="toggleRSVPFields(true)">
+                        <div class="p-4 rounded-xl border-2 border-sage-200 peer-checked:border-gold peer-checked:bg-sage-50 text-center transition">
+                            <i class="fa-solid fa-heart text-gold text-xl block mb-1"></i>
+                            <span class="font-serif text-sm font-semibold text-sage-700 block">Ich / Wir kommen gerne!</span>
+                        </div>
+                    </label>
+
+                    <label class="cursor-pointer">
+                        <input type="radio" name="attendance" value="no" class="peer sr-only" onchange="toggleRSVPFields(false)">
+                        <div class="p-4 rounded-xl border-2 border-sage-200 peer-checked:border-sage-400 peer-checked:bg-sage-100 text-center transition">
+                            <i class="fa-solid fa-heart-crack text-sage-400 text-xl block mb-1"></i>
+                            <span class="font-serif text-sm font-semibold text-sage-700 block">Kann leider nicht</span>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Names Input -->
+                <div>
+                    <label class="block font-sans text-xs uppercase tracking-wider text-sage-700 mb-2">Vor- und Nachname(n) *</label>
+                    <input type="text" id="guestNames" required placeholder="z. B. Max & Anna Mustermann" class="w-full px-4 py-3 rounded-lg bg-cream-50 border border-sage-300 focus:outline-none focus:border-gold text-sm text-sage-800">
+                </div>
+
+                <!-- Conditional Fields (Only if attending) -->
+                <div id="attending-fields" class="space-y-6">
+                    <!-- Guest Count -->
+                    <div>
+                        <label class="block font-sans text-xs uppercase tracking-wider text-sage-700 mb-2">Anzahl der Personen</label>
+                        <select id="guestCount" class="w-full px-4 py-3 rounded-lg bg-cream-50 border border-sage-300 focus:outline-none focus:border-gold text-sm text-sage-800">
+                            <option value="1">1 Person</option>
+                            <option value="2" selected>2 Personen</option>
+                            <option value="3">3 Personen</option>
+                            <option value="4">4 Personen (Familie)</option>
+                        </select>
+                    </div>
+
+                    <!-- Menu Preferences -->
+                    <div>
+                        <label class="block font-sans text-xs uppercase tracking-wider text-sage-700 mb-2">Essenswünsche / Unverträglichkeiten</label>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            <label class="flex items-center space-x-2 text-xs text-sage-700 cursor-pointer">
+                                <input type="checkbox" name="food" value="Fleisch" class="rounded text-sage-600 focus:ring-gold">
+                                <span>Klassisch / Fleisch</span>
+                            </label>
+                            <label class="flex items-center space-x-2 text-xs text-sage-700 cursor-pointer">
+                                <input type="checkbox" name="food" value="Vegetarisch" class="rounded text-sage-600 focus:ring-gold">
+                                <span>Vegetarisch</span>
+                            </label>
+                            <label class="flex items-center space-x-2 text-xs text-sage-700 cursor-pointer">
+                                <input type="checkbox" name="food" value="Vegan" class="rounded text-sage-600 focus:ring-gold">
+                                <span>Vegan</span>
+                            </label>
+                        </div>
+                        <input type="text" id="allergies" placeholder="Allergien oder besondere Hinweise..." class="w-full mt-3 px-4 py-2.5 rounded-lg bg-cream-50 border border-sage-300 focus:outline-none focus:border-gold text-xs text-sage-800">
+                    </div>
+
+                    <!-- Song Request -->
+                    <div>
+                        <label class="block font-sans text-xs uppercase tracking-wider text-sage-700 mb-2">Euer Musikwunsch für die Tanzfläche 🎵</label>
+                        <input type="text" id="songWish" placeholder="Künstler - Songtitel" class="w-full px-4 py-3 rounded-lg bg-cream-50 border border-sage-300 focus:outline-none focus:border-gold text-sm text-sage-800">
+                    </div>
+                </div>
+
+                <!-- Personal Message -->
+                <div>
+                    <label class="block font-sans text-xs uppercase tracking-wider text-sage-700 mb-2">Persönliche Nachricht an das Brautpaar</label>
+                    <textarea id="message" rows="3" placeholder="Wir freuen uns schon..." class="w-full px-4 py-3 rounded-lg bg-cream-50 border border-sage-300 focus:outline-none focus:border-gold text-sm text-sage-800"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center pt-2">
+                    <button type="submit" class="w-full md:w-auto bg-sage-600 hover:bg-sage-700 text-white font-sans text-xs uppercase tracking-widest font-semibold px-10 py-4 rounded-full transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-paper-plane mr-2"></i> Rückmeldung Absenden
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+        <!-- SECTION 6: HONEYMOON / GIFT REGISTRY (Flitterwochen-Kasse) -->
+        <section id="geschenke" class="bg-cream-100/90 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-cream-300 invitation-card-shadow text-center">
+            <p class="font-script text-3xl text-gold-dark mb-1">Geschenkwunsch</p>
+            <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-700 uppercase">
+                Flitterwochen-Kasse
+            </h2>
+            <div class="w-12 h-[1px] bg-gold/50 mx-auto mt-3 mb-6"></div>
+
+            <p class="font-sans text-sm text-sage-600 leading-relaxed max-w-lg mx-auto mb-8 font-light">
+                An eurem Erscheinen liegt uns das Allermeiste! Wer uns dennoch eine Freude machen möchte, darf unsere Reisekasse für unvergessliche Flitterwochen in der Sonne aufbessern.
+            </p>
+
+            <!-- Interactive Bank Details Card / Envelope -->
+            <div class="max-w-md mx-auto bg-sage-50 rounded-xl p-6 border border-sage-200 shadow-sm relative">
+                <div class="w-12 h-12 rounded-full bg-cream-100 border border-gold/50 mx-auto flex items-center justify-center text-gold text-xl mb-3">
+                    <i class="fa-solid fa-plane-departure"></i>
+                </div>
+                <h3 class="font-serif text-lg font-semibold text-sage-800">Bankverbindung für Geschenkbeiträge</h3>
+                
+                <div class="mt-4 p-3 bg-cream-100 rounded border border-sage-200 text-xs text-sage-700 space-y-1 font-mono text-left">
+                    <div class="flex justify-between">
+                        <span class="text-sage-500 font-sans">Empfänger:</span>
+                        <span class="font-bold">Janine & Marvin</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sage-500 font-sans">IBAN:</span>
+                        <span id="iban-text" class="font-bold">DE89 1234 5678 9012 3456 78</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-sage-500 font-sans">Verwendungszweck:</span>
+                        <span>Hochzeit 2026</span>
+                    </div>
+                </div>
+
+                <div class="mt-4 flex justify-center space-x-3">
+                    <button onclick="copyIBAN()" class="bg-cream-100 border border-gold/60 text-gold-dark hover:bg-gold hover:text-white px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium transition flex items-center space-x-1">
+                        <i class="fa-regular fa-copy"></i>
+                        <span>IBAN Kopieren</span>
+                    </button>
+                    <button onclick="openPaypalModal()" class="bg-sage-600 hover:bg-sage-700 text-white px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium transition flex items-center space-x-1">
+                        <i class="fa-brands fa-paypal"></i>
+                        <span>PayPal.me</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: FAQ & CONTACT -->
+        <section class="bg-cream-100/90 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-cream-300 invitation-card-shadow">
+            <div class="text-center mb-8">
+                <p class="font-script text-3xl text-gold-dark mb-1">Gut zu wissen</p>
+                <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-sage-700 uppercase">
+                    Fragen & Trauzeugen
+                </h2>
+                <div class="w-12 h-[1px] bg-gold/50 mx-auto mt-3"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Dresscode -->
+                <div class="p-5 bg-sage-50/70 rounded-xl border border-sage-200">
+                    <h3 class="font-serif text-lg font-semibold text-sage-800 mb-2">
+                        <i class="fa-solid fa-shirt text-gold mr-2"></i> Dresscode
+                    </h3>
+                    <p class="text-xs text-sage-600 leading-relaxed">
+                        Festlich & Elegant (Eukalyptus, Pastelltöne, Naturfarben harmonieren wunderbar mit unserer Hochzeitsdekoration).
+                    </p>
+                </div>
+
+                <!-- Fotos -->
+                <div class="p-5 bg-sage-50/70 rounded-xl border border-sage-200">
+                    <h3 class="font-serif text-lg font-semibold text-sage-800 mb-2">
+                        <i class="fa-solid fa-camera text-gold mr-2"></i> Unplugged Ceremony
+                    </h3>
+                    <p class="text-xs text-sage-600 leading-relaxed">
+                        Während der Trauung bitten wir euch, Handys in der Tasche zu lassen. Unser Fotograf hält alle wichtigen Momente fest.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Trauzeugen Contact -->
+            <div class="mt-8 pt-6 border-t border-sage-200 text-center">
+                <h3 class="font-serif text-lg font-semibold text-sage-800 mb-3">Eure Ansprechpartner / Trauzeugen</h3>
+                <div class="flex justify-center space-x-6 text-xs text-sage-700">
+                    <div>
+                        <span class="font-semibold block text-sage-800">Laura (Trauzeugin)</span>
+                        <span class="text-sage-500">+49 170 1234567</span>
+                    </div>
+                    <div class="border-l border-sage-300 pl-6">
+                        <span class="font-semibold block text-sage-800">Tobias (Trauzeuge)</span>
+                        <span class="text-sage-500">+49 171 7654321</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 text-sage-600 text-xs font-sans border-t border-sage-300/50">
+        <p class="font-serif text-lg text-sage-800 mb-1">Janine & Marvin</p>
+        <p>12. Dezember 2026 • Wir freuen uns auf euch!</p>
+    </footer>
+
+    <!-- Toast Notification Box -->
+    <div id="toast" class="fixed bottom-6 right-6 transform translate-y-24 opacity-0 transition-all duration-300 bg-sage-800 text-white px-6 py-4 rounded-xl shadow-2xl z-50 flex items-center space-x-3 pointer-events-none">
+        <i id="toast-icon" class="fa-solid fa-circle-check text-gold text-xl"></i>
+        <span id="toast-message" class="text-xs font-medium">Ihre Nachricht wurde gespeichert.</span>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        
+        // 1. Live Countdown Timer target: Dec 12, 2026 14:00:00
+        const weddingDate = new Date('2026-12-12T14:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.getElementById('cd-days').innerText = "00";
+                document.getElementById('cd-hours').innerText = "00";
+                document.getElementById('cd-minutes').innerText = "00";
+                document.getElementById('cd-seconds').innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('cd-days').innerText = days < 10 ? '0' + days : days;
+            document.getElementById('cd-hours').innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById('cd-minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('cd-seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // 2. RSVP Form field toggle
+        function toggleRSVPFields(isAttending) {
+            const attendingFields = document.getElementById('attending-fields');
+            if (isAttending) {
+                attendingFields.style.display = 'space-y-6';
+                attendingFields.classList.remove('hidden');
+            } else {
+                attendingFields.classList.add('hidden');
+            }
+        }
+
+        // 3. Handle RSVP Form Submission & Confetti
+        function handleRSVPSubmit(e) {
+            e.preventDefault();
+
+            const names = document.getElementById('guestNames').value;
+            const attendance = document.querySelector('input[name="attendance"]:checked').value;
+
+            // Trigger confetti if attending
+            if (attendance === 'yes' && typeof confetti === 'function') {
+                confetti({
+                    particleCount: 120,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#C5A059', '#6C8370', '#FAF9F5', '#E8D298']
+                });
+            }
+
+            // Save state in LocalStorage
+            localStorage.setItem('jm_rsvp_submitted', 'true');
+            localStorage.setItem('jm_rsvp_name', names);
+
+            showToast('Vielen Dank, ' + names + '! deine Rückmeldung wurde gespeichert.');
+            document.getElementById('rsvp-status-banner').classList.remove('hidden');
+        }
+
+        // 4. Toast notification helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.innerText = msg;
+
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 4000);
+        }
+
+        // 5. Copy IBAN to clipboard
+        function copyIBAN() {
+            const iban = document.getElementById('iban-text').innerText;
+            const tempInput = document.createElement('input');
+            tempInput.value = iban;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            showToast('IBAN erfolgreich in die Zwischenablage kopiert!');
+        }
+
+        // 6. PayPal Link Helper
+        function openPaypalModal() {
+            showToast('Weiterleitung zu PayPal.me...');
+            setTimeout(() => {
+                window.open('https://paypal.me', '_blank');
+            }, 1000);
+        }
+
+        // 7. Download .ICS Calendar File
+        function downloadICS() {
+            const icsData = 
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Janine Und Marvin//Hochzeit//DE
+BEGIN:VEVENT
+SUMMARY:Hochzeit von Janine & Marvin
+DESCRIPTION:Wir feiern unsere Hochzeit! Schloss & Park Gut Botanica.
+LOCATION:Eukalyptus-Allee 1, 12345 Traumstadt
+DTSTART:20261212T130000Z
+DTEND:20261213T020000Z
+END:VEVENT
+END:VCALENDAR`;
+
+            const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.setAttribute('download', 'Hochzeit_Janine_Marvin.ics');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast('Kalendereintrag (.ics) heruntergeladen!');
+        }
+
+        // Check previous RSVP state on load
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('jm_rsvp_submitted') === 'true') {
+                document.getElementById('rsvp-status-banner').classList.remove('hidden');
+                const savedName = localStorage.getItem('jm_rsvp_name');
+                if (savedName) {
+                    document.getElementById('guestNames').value = savedName;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
