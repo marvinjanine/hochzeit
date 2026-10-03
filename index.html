@@ -746,38 +746,46 @@
         const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbweLQLVvoLkxYgizEei_kykji4pCvoMF37s-URHbSD6xg3M7vqGuW5xs8gzq-rV0FMQaA/exec';
 
         // 1. RSVP Form Handler
-        document.getElementById('custom-rsvp-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const btn = document.getElementById('rsvp-btn');
-            const originalContent = btn.innerHTML;
-
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-gold-light"></i><span>Wird gesendet...</span>';
-
-            const payload = {
-                name: document.getElementById('rsvp-name').value,
-                status: document.getElementById('rsvp-status').value,
-                personen: document.getElementById('rsvp-personen').value,
-                nachricht: document.getElementById('rsvp-nachricht').value
-            };
-
-            fetch(GOOGLE_APPS_SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            })
-            .then(() => {
-                showToast("Vielen Dank! Eure Rückmeldung wurde gespeichert.");
-                document.getElementById('custom-rsvp-form').reset();
-                btn.disabled = false;
-                btn.innerHTML = originalContent;
-            })
-            .catch(error => {
-                showToast("Fehler beim Übertragen. Bitte erneut versuchen.");
-                btn.disabled = false;
-                btn.innerHTML = originalContent;
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('custom-rsvp-form');
+            if (!form) return;
+        
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const btn = document.getElementById('rsvp-btn');
+                const originalContent = btn.innerHTML;
+        
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-gold-light"></i><span>Wird gesendet...</span>';
+        
+                const payload = {
+                    name: document.getElementById('rsvp-name').value,
+                    status: document.getElementById('rsvp-status').value,
+                    personen: document.getElementById('rsvp-personen').value,
+                    nachricht: document.getElementById('rsvp-nachricht').value
+                };
+        
+                fetch(GOOGLE_APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 
+                        'Content-Type': 'text/plain;charset=utf-8' 
+                    },
+                    body: JSON.stringify(payload)
+                })
+                .then(() => {
+                    showToast("Vielen Dank! Eure Rückmeldung wurde gespeichert.");
+                    form.reset();
+                    btn.disabled = false;
+                    btn.innerHTML = originalContent;
+                })
+                .catch(error => {
+                    console.error("RSVP Transmission Error:", error);
+                    showToast("Fehler beim Übertragen. Bitte erneut versuchen.");
+                    btn.disabled = false;
+                    btn.innerHTML = originalContent;
+                });
             });
         });
 
